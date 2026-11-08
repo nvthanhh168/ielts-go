@@ -210,10 +210,16 @@ class IeltsApp {
 
     // Đồng bộ số liệu thống kê realtime sang Sổ Tay & Flashcard nếu đang hiển thị
     if (window.vocabVaultApp && document.getElementById('vv-cards-container')) {
-      window.vocabVaultApp.updateDashboardStats();
+      if (typeof window.vocabVaultApp.updateHeaderAndTopBars === 'function') {
+        window.vocabVaultApp.updateHeaderAndTopBars();
+      } else if (typeof window.vocabVaultApp.updateDashboardStats === 'function') {
+        window.vocabVaultApp.updateDashboardStats();
+      }
     }
     if (window.flashcardApp && document.getElementById('fc-quick-stats-pill')) {
-      window.flashcardApp.updateStatsDisplay();
+      if (typeof window.flashcardApp.updateStatsDisplay === 'function') {
+        window.flashcardApp.updateStatsDisplay();
+      }
     }
   }
 

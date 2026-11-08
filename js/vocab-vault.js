@@ -697,15 +697,20 @@ class IeltsVocabVaultApp {
 
   // Cập nhật lại các thanh tiến độ trên giao diện
   updateHeaderAndTopBars() {
-    if (window.app && typeof window.app.renderGamificationHud === 'function') {
+    if (window.app && typeof window.app.renderGamificationHud === 'function' && window.gamification) {
       window.app.renderGamificationHud(window.gamification.state);
     }
+  }
+
+  // Alias tương thích ngược cho updateDashboardStats
+  updateDashboardStats() {
+    this.updateHeaderAndTopBars();
   }
 
   // Chuyển danh sách từ đang lọc sang Flashcard 3D để học ngay
   studyWithFlashcard() {
     if (window.app && typeof window.app.switchTab === 'function') {
-      window.app.switchTab('flashcards');
+      window.app.switchTab('flashcard');
       if (window.flashcardApp) {
         window.flashcardApp.selectedTopic = this.selectedTopicId === 'all' ? 'study' : this.selectedTopicId;
         window.flashcardApp.selectedBand = this.selectedBandTier;
