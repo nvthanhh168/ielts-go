@@ -4,10 +4,10 @@
   "description": "Frontend UI Client for IELTS Master AI Learning Platform",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "dev": "echo 'dev'",
+    "build": "echo 'Frontend build skipped - using static SPA root'",
+    "start": "echo 'start'",
+    "lint": "echo 'lint'"
   },
   "dependencies": {
     "axios": "^1.7.9",

@@ -1,0 +1,9 @@
+{
+  "name": "ielts-go",
+  "version": "1.0.0",
+  "private": true,
+  "description": "IELTS GO! - Học IELTS Chuẩn Cambridge & AI Examiner Victoria",
+  "scripts": {
+    "build": "echo 'Build OK'"
+  }
+}
