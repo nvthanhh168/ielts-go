@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>👑 IELTS GO! - Học IELTS Chuẩn Cambridge & AI Examiner Victoria</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👑</text></svg>">
+</head>
+<body>
+
+  <!-- ================= HEADER TRÊN CÙNG ================= -->
+  <header class="app-header">
+    <div class="header-inner">
+      <!-- Hàng 1: Brand Logo + Chọn Hệ Thi (Academic / General) + Âm Thanh + Hồ Sơ -->
+      <div class="header-top-row">
+        <div class="brand-wrap">
+          <div class="brand-logo-icon">👑</div>
+          <div class="brand-text">
+            <h1>IELTS GO! <span>Cambridge Standard</span></h1>
+            <p>Học IELTS Chuẩn Cambridge &amp; AI Examiner Victoria</p>
+          </div>
+        </div>
+
+        <div class="header-actions-wrap">
+          <!-- Thanh chọn 2 Hệ Thi: Academic vs General Training -->
+          <div class="track-selector-bar">
+            <button class="track-chip active" id="track-chip-academic" onclick="window.app.setExamTrack('ACADEMIC')" title="Dành cho bậc Đại học, Sau đại học hoặc mục đích chuyên môn">
+              🎓 Academic<span class="hide-mobile"> (Đại học/Thạc sĩ)</span>
+            </button>
+            <button class="track-chip" id="track-chip-general" onclick="window.app.setExamTrack('GENERAL_TRAINING')" title="Dành cho đào tạo nghề, trung học hoặc định cư">
+              💼 General<span class="hide-mobile"> (Nghề/Định cư)</span>
+            </button>
+          </div>
+
+          <!-- Nút bật tắt âm thanh -->
+          <button class="btn-sound-toggle" id="btn-sound-toggle" onclick="window.soundSystem.toggleSound()" title="Bật / Tắt âm thanh hiệu ứng">
+            🔊 <span class="hide-mobile">Âm thanh</span>
+          </button>
+
+          <!-- Nút xem Hồ sơ & Thống kê Gamification -->
+          <button class="btn-profile-modal" id="btn-profile-modal" onclick="window.app.openProfileModal()" title="Xem chi tiết hồ sơ & sao lưu tiến độ">
+            📊 <span class="hide-mobile">Hồ sơ</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Hàng 2: Thanh Gamification HUD Ribbon Trải Dài Đều -->
+      <div class="header-bottom-hud">
+        <div class="user-hud-badges">
+          <!-- 1. Tiến độ từ vựng 20 Chủ điểm & Gatekeeping Level -->
+          <div class="hud-pill vocab hud-vocab-clickable" id="hud-vocab-mastery" onclick="window.vocabGatekeeper.openPyramidModal()" title="Bấm để mở Tháp Từ Vựng IELTS (Vocabulary Pyramid) 5 Cấp Độ">
+            <span>🎯</span>
+            <span id="user-vocab-mastery">0% (0/2500 từ)</span>
+          </div>
+
+          <!-- 2. Chuỗi ngày học liên tục (Daily Streak) -->
+          <div class="hud-pill streak" title="Chuỗi ngày học liên tục">
+            <span>🔥</span>
+            <span id="user-streak">1 ngày</span>
+          </div>
+
+          <!-- 3. Vương miện thưởng tích lũy (Crowns) -->
+          <div class="hud-pill crowns" title="Vương miện thưởng tích lũy - Dùng để mở khóa gợi ý bài thi">
+            <span>👑</span>
+            <span id="user-crowns">50</span>
+          </div>
+
+          <!-- 4. Điểm kinh nghiệm EXP -->
+          <div class="hud-pill exp" title="Điểm kinh nghiệm EXP">
+            <span>⭐</span>
+            <span id="user-exp">0 EXP</span>
+          </div>
+
+          <!-- 5. Cấp độ học viên & 5 Mốc Band -->
+          <div class="hud-pill level" title="Cấp độ học viên theo 5 mốc Band chuẩn Cambridge">
+            <span id="user-level">Lv.1</span>
+            <span id="user-title" style="font-size: 11px; opacity: 0.9;">🥈 Band 4.5 - 6.0</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= THANH ĐIỀU HƯỚNG CHỌN CHẾ ĐỘ ================= -->
+  <nav class="main-nav-bar">
+    <div class="nav-bar-container">
+      <button class="nav-scroll-btn left" id="nav-btn-prev" onclick="window.app.scrollNav(-260)" aria-label="Cuộn trái" title="Cuộn sang trái">‹</button>
+      <div class="nav-tabs-wrap" id="nav-tabs-wrap">
+        <button class="nav-tab-btn active" data-tab="roadmap">
+          <span>🗺️</span> Lộ Trình 5 Band Điểm
+          <span class="tab-badge" style="background:#FFE8CC; color:#D9480F;">Roadmap</span>
+        </button>
+        <button class="nav-tab-btn" data-tab="flashcard">
+          <span>🃏</span> Flashcard 3D
+          <span class="tab-badge" style="background:#E7F5FF; color:#1864AB;">Spaced</span>
+        </button>
+        <button class="nav-tab-btn" data-tab="guess-game">
+          <span>🎮</span> Game Đoán Từ
+          <span class="tab-badge" style="background:#FFE3E3; color:#E03131;">Hot</span>
+        </button>
+        <button class="nav-tab-btn" data-tab="memory-game">
+          <span>🧩</span> Lật Thẻ Trí Nhớ
+          <span class="tab-badge" style="background:#E6FCF5; color:#0CA678;">Collocations</span>
+        </button>
+        <button class="nav-tab-btn" data-tab="speech-test">
+          <span>🎤</span> Test Phát Âm &amp; Speaking AI
+          <span class="tab-badge" style="background:#F3F0FF; color:#7048E8;">AI Voice</span>
+        </button>
+        <button class="nav-tab-btn" data-tab="writing-studio">
+          <span>✍️</span> IELTS Writing Studio
+          <span class="tab-badge" style="background:#FFF9DB; color:#D9480F;">Examiner</span>
+        </button>
+        <button class="nav-tab-btn" data-tab="grammar-scramble">
+          <span>📐</span> Ngữ Pháp &amp; Ghép Câu Học Thuật
+          <span class="tab-badge" style="background:#EBFBEE; color:#2B8A3E;">Grammar</span>
+        </button>
+        <button class="nav-tab-btn" data-tab="strict-sensei">
+          <span>👩‍🏫</span> Giám Khảo Victoria AI
+          <span class="tab-badge" style="background:#FFF0F6; color:#D6336C;">Khảo Bài 1-on-1</span>
+        </button>
+        <button class="nav-tab-btn" data-tab="mock-test">
+          <span>🏆</span> Thi Thử IELTS
+          <span class="tab-badge" style="background:#FFE3E3; color:#C92A2A;">Chứng Chỉ TRF</span>
+        </button>
+        <button class="nav-tab-btn" data-tab="vocab-vault">
+          <span>📖</span> Sổ Tay Từ Vựng &amp; Giáo Trình
+          <span class="tab-badge" style="background:#F1F3F5; color:#495057;">Vault</span>
+        </button>
+      </div>
+      <button class="nav-scroll-btn right" id="nav-btn-next" onclick="window.app.scrollNav(260)" aria-label="Cuộn phải" title="Cuộn sang phải">›</button>
+
+      <!-- Nút xem nhanh danh sách toàn bộ 10 Chế độ -->
+      <button class="nav-all-modes-btn" id="btn-open-modes-modal" onclick="window.app.openModesModal()" title="Xem tất cả 10 Chế Độ Học">
+        <span>☰</span> <span class="hide-mobile">10 Chế Độ</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ================= BỐ CỤC CHÍNH (CONTAINER 2 CỘT) ================= -->
+  <div class="app-container">
+
+    <!-- Cột trái: Linh vật Barnaby Sensei 🐕 & Giám khảo Victoria AI 👩‍🏫 -->
+    <aside class="mascot-sidebar">
+      <div id="mascot-container">
+        <!-- Mascot SVG, Character Switcher & Speech Bubble render qua js/mascot.js -->
+      </div>
+    </aside>
+
+    <!-- Cột phải: Khu vực nội dung 10 Tabs Chế Độ Học -->
+    <main class="content-area">
+
+      <!-- ================= TAB 1: LỘ TRÌNH 5 BAND ĐIỂM ================= -->
+      <section class="app-tab-panel active" id="tab-roadmap">
+        <div id="roadmap-container">
+          <!-- Render Lộ trình 5 Chặng & Kho Giáo Trình qua js/roadmap.js -->
+        </div>
+      </section>
+
+      <!-- ================= TAB 2: FLASHCARD 3D ================= -->
+      <section class="app-tab-panel" id="tab-flashcard">
+        <div id="flashcard-container">
+          <!-- Render qua js/flashcard.js -->
+        </div>
+      </section>
+
+      <!-- ================= TAB 3: GAME ĐOÁN TỪ ================= -->
+      <section class="app-tab-panel" id="tab-guess-game">
+        <div id="guess-game-container">
+          <!-- Render qua js/guess-game.js -->
+        </div>
+      </section>
+
+      <!-- ================= TAB 4: LẬT THẺ TRÍ NHỚ (PARAPHRASE MATCH) ================= -->
+      <section class="app-tab-panel" id="tab-memory-game">
+        <div id="memory-game-container">
+          <!-- Render qua js/memory-game.js -->
+        </div>
+      </section>
+
+      <!-- ================= TAB 5: TEST PHÁT ÂM & SPEAKING AI ================= -->
+      <section class="app-tab-panel" id="tab-speech-test">
+        <div id="speech-test-container">
+          <!-- Render qua js/speech-test.js -->
+        </div>
+      </section>
+
+      <!-- ================= TAB 6: IELTS WRITING STUDIO ================= -->
+      <section class="app-tab-panel" id="tab-writing-studio">
+        <div id="writing-studio-container">
+          <!-- Render qua js/writing-studio.js -->
+        </div>
+      </section>
+
+      <!-- ================= TAB 7: NGỮ PHÁP & GHÉP CÂU HỌC THUẬT ================= -->
+      <section class="app-tab-panel" id="tab-grammar-scramble">
+        <div id="grammar-scramble-container">
+          <!-- Render qua js/grammar-scramble.js -->
+        </div>
+      </section>
+
+      <!-- ================= TAB 8: GIÁM KHẢO VICTORIA AI ================= -->
+      <section class="app-tab-panel" id="tab-strict-sensei">
+        <div id="strict-sensei-container">
+          <!-- Render qua js/strict-examiner.js -->
+        </div>
+      </section>
+
+      <!-- ================= TAB 9: THI THỬ IELTS (CẤP CHỨNG CHỈ TRF) ================= -->
+      <section class="app-tab-panel" id="tab-mock-test">
+        <div id="mock-test-container">
+          <!-- Render qua js/mock-test-app.js -->
+        </div>
+      </section>
+
+      <!-- ================= TAB 10: SỔ TAY TỪ VỰNG & GIÁO TRÌNH ================= -->
+      <section class="app-tab-panel" id="tab-vocab-vault">
+        <div id="vocab-vault-container">
+          <!-- Render qua js/vocab-vault.js -->
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- ================= MODAL: TẤT CẢ 10 CHẾ ĐỘ HỌC IELTS ================= -->
+  <div class="modal-overlay" id="modes-modal" onclick="if(event.target===this) window.app.closeModesModal()">
+    <div class="modal-content-shell">
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <h3><span>📚</span> Tất Cả 10 Chế Độ Học IELTS GO!</h3>
+          <p>Chọn mô-đun để chuyển đổi trực tiếp trên mọi thiết bị PC, Tablet &amp; Mobile</p>
+        </div>
+        <button class="btn-close-modal" onclick="window.app.closeModesModal()" title="Đóng hộp thoại">&times;</button>
+      </div>
+      <div class="modal-body-scroll">
+        <div class="modes-grid" id="modes-grid-container">
+          <!-- Render tự động 10 thẻ chế độ qua js/app.js -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= MODAL: HỒ SƠ & TIẾN ĐỘ GAMIFICATION ================= -->
+  <div class="modal-overlay" id="profile-modal" onclick="if(event.target===this) window.app.closeProfileModal()">
+    <div class="modal-content-shell" style="max-width: 680px;">
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <h3><span>📊</span> Hồ Sơ Năng Lực &amp; Gamification</h3>
+          <p>Thống kê chuỗi ngày học, điểm kinh nghiệm và mục tiêu du học</p>
+        </div>
+        <button class="btn-close-modal" onclick="window.app.closeProfileModal()" title="Đóng">&times;</button>
+      </div>
+      <div class="modal-body-scroll" style="display: flex; flex-direction: column; gap: 20px;">
+        <div class="profile-stats-grid">
+          <div class="profile-stat-box">
+            <span class="stat-label">🔥 Chuỗi ngày liên tục</span>
+            <span class="stat-value" id="prof-stat-streak">1 ngày</span>
+          </div>
+          <div class="profile-stat-box">
+            <span class="stat-label">👑 Vương miện tích lũy</span>
+            <span class="stat-value" id="prof-stat-crowns" style="color: #D97706;">50 👑</span>
+          </div>
+          <div class="profile-stat-box">
+            <span class="stat-label">⭐ Điểm kinh nghiệm</span>
+            <span class="stat-value" id="prof-stat-exp" style="color: #1E40AF;">0 EXP</span>
+          </div>
+          <div class="profile-stat-box">
+            <span class="stat-label">🎯 Thuộc từ vựng 20 Chủ điểm</span>
+            <span class="stat-value" id="prof-stat-vocab" style="color: #166534;">0 / 1000 từ</span>
+          </div>
+          <div class="profile-stat-box" style="grid-column: 1 / -1;">
+            <span class="stat-label">🎖️ Ước tính Band điểm hiện tại</span>
+            <span class="stat-value" id="prof-stat-band" style="color: #7048E8;">Band 5.5 (Trung Cấp)</span>
+          </div>
+          <div class="profile-stat-box" style="grid-column: 1 / -1;">
+            <span class="stat-label">🎓 Hệ thi đang luyện tập</span>
+            <span class="stat-value" id="prof-stat-track" style="font-size: 15px;">Academic (Đại học/Thạc sĩ)</span>
+          </div>
+        </div>
+
+        <div style="border-top: 1px solid #E2E8F0; padding-top: 16px; display: flex; justify-content: space-between; align-items: center;">
+          <button onclick="window.app.confirmReset()" style="background: transparent; border: 1px solid #FCA5A5; color: #DC2626; padding: 7px 14px; border-radius: 8px; font-size: 12px; font-weight: 700; cursor: pointer;">
+            🔄 Đặt Lại Tiến Độ
+          </button>
+          <button onclick="window.app.closeProfileModal()" style="background: #0F172A; color: #FFFFFF; border: none; padding: 8px 18px; border-radius: 8px; font-size: 12px; font-weight: 700; cursor: pointer;">
+            Đóng
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= MODAL: THÁP TỪ VỰNG IELTS (VOCABULARY PYRAMID) ================= -->
+  <div class="modal-overlay" id="vocab-pyramid-modal" onclick="if(event.target===this) window.vocabGatekeeper.closePyramidModal()">
+    <div class="modal-content-shell pyramid-modal-shell" style="max-width: 940px;">
+      <!-- Nội dung render động qua js/vocab-gatekeeper.js -->
+    </div>
+  </div>
+
+  <!-- ================= MODAL: THẺ CHI TIẾT TỪ VỰNG CHUẨN CHẤM THI (LEXICAL DEEP-DIVE CARD) ================= -->
+  <div class="modal-overlay lexical-modal-overlay" id="lexical-deep-dive-modal" onclick="if(event.target===this) window.lexicalDeepDive.close()">
+    <div class="modal-content-shell lexical-modal-shell" id="lexical-modal-content">
+      <!-- Nội dung render động qua js/lexical-deep-dive.js -->
+    </div>
+  </div>
+
+  <!-- ================= MODAL: BÀI THI THĂNG CẤP BAND ĐIỂM (BAND PROMOTION EXAM) ================= -->
+  <div class="modal-overlay promo-modal-overlay" id="band-promotion-modal">
+    <!-- Nội dung render động qua js/band-promotion-exam.js -->
+  </div>
+
+  <!-- ================= TÍCH HỢP SCRIPTS ================= -->
+  <script src="js/ai-service.js"></script>
+  <script src="js/gamification.js"></script>
+  <script src="js/srs-manager.js"></script>
+  <script src="js/audio.js"></script>
+  <script src="js/mascot.js"></script>
+  <script src="js/vocab-database.js"></script>
+  <script src="js/speaking-data.js"></script>
+  <script src="js/roadmap.js"></script>
+  <script src="js/flashcard.js"></script>
+  <script src="js/guess-game.js"></script>
+  <script src="js/memory-game.js"></script>
+  <script src="js/speech-test.js"></script>
+  <script src="js/writing-data.js"></script>
+  <script src="js/writing-studio.js"></script>
+  <script src="js/grammar-data.js"></script>
+  <script src="js/grammar-scramble.js"></script>
+  <script src="js/strict-examiner-data.js"></script>
+  <script src="js/strict-examiner.js"></script>
+  <script src="js/mock-test-data.js"></script>
+  <script src="js/mock-test-app.js"></script>
+  <script src="js/vocab-matrix-data.js"></script>
+  <script src="js/vocab-seed-part1.js"></script>
+  <script src="js/vocab-seed-part2.js"></script>
+  <script src="js/vocab-benchmark-data.js"></script>
+  <script src="js/lexical-deep-dive-data.js"></script>
+  <script src="js/lexical-deep-dive.js"></script>
+  <script src="js/vocab-vault.js"></script>
+  <script src="js/vocab-gatekeeper.js"></script>
+  <script src="js/band-promotion-exam.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

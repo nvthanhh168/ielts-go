@@ -1,0 +1,1353 @@
+/**
+ * IELTS GO! - Academic Vocabulary Seed Data (Part 1: Topics 1 - 10)
+ * Danh mục 10 chủ đề đầu tiên:
+ * 1. Animals (Động vật)
+ * 2. Art (Nghệ thuật)
+ * 3. Celebrations (Lễ hội & Kỷ niệm)
+ * 4. Clothes (Trang phục & Thời trang)
+ * 5. Environment (Môi trường & Hệ sinh thái)
+ * 6. Famous People (Người nổi tiếng & Hình mẫu)
+ * 7. Food (Ẩm thực & Dinh dưỡng)
+ * 8. Friends (Bạn bè & Mối quan hệ)
+ * 9. Holidays (Kỳ nghỉ & Du lịch)
+ * 10. Music (Âm nhạc & Nghệ thuật biểu diễn)
+ *
+ * Mỗi mục từ đều trải đủ 5 cấp độ: Mất gốc, < 4.5, 4.5 - 6.0, 6.0 - 7.5, và 7.5+
+ */
+
+export interface IeltsVocabSeedItem {
+  id: string;
+  word: string;
+  ipa: string;
+  stressPattern: string;
+  partOfSpeech: string;
+  topic: string;
+  bandLevel: 'Mất gốc' | '< 4.5' | '4.5 - 6.0' | '6.0 - 7.5' | '7.5+';
+  vietnameseMeaning: string;
+  synonymsByBand: {
+    band45: string;
+    band65: string;
+    band80: string;
+  };
+  collocations: string[];
+  wordFamily: {
+    noun?: string[];
+    verb?: string[];
+    adjective?: string[];
+    adverb?: string[];
+  };
+  exampleSentence: string;
+  exampleTranslation: string;
+}
+
+export const IELTS_VOCAB_SEED_PART1: IeltsVocabSeedItem[] = [
+  // ==========================================
+  // TOPIC 1: ANIMALS (ĐỘNG VẬT & THẾ GIỚI HOANG DÃ)
+  // ==========================================
+  {
+    id: 'anim-seed-01',
+    word: 'pet',
+    ipa: '/pet/',
+    stressPattern: 'PET [O]',
+    partOfSpeech: 'noun',
+    topic: 'animals',
+    bandLevel: 'Mất gốc',
+    vietnameseMeaning: 'thú cưng, vật nuôi trong nhà',
+    synonymsByBand: {
+      band45: 'tame animal',
+      band65: 'domesticated animal',
+      band80: 'companion creature'
+    },
+    collocations: ['keep a pet', 'family pet', 'pet owner', 'adopt a pet'],
+    wordFamily: {
+      noun: ['pet (thú cưng)'],
+      verb: ['pet (vuốt ve thú cưng)']
+    },
+    exampleSentence: 'Many families keep a pet dog to teach their children a sense of responsibility.',
+    exampleTranslation: 'Nhiều gia đình nuôi một chú chó cưng để dạy con cái của họ ý thức về trách nhiệm.'
+  },
+  {
+    id: 'anim-seed-02',
+    word: 'wild animal',
+    ipa: '/waɪld ˈæn.ɪ.məl/',
+    stressPattern: 'WILD AN-i-mal [O • O o o]',
+    partOfSpeech: 'collocation',
+    topic: 'animals',
+    bandLevel: '< 4.5',
+    vietnameseMeaning: 'động vật hoang dã',
+    synonymsByBand: {
+      band45: 'forest animal',
+      band65: 'wildlife species',
+      band80: 'undomesticated fauna'
+    },
+    collocations: ['protect wild animals', 'wild animal habitat', 'encounter a wild animal'],
+    wordFamily: {
+      noun: ['wildness (sự hoang dã)'],
+      adjective: ['wild (hoang dã)']
+    },
+    exampleSentence: 'Visiting national parks allows travelers to observe wild animals in their natural surroundings.',
+    exampleTranslation: 'Việc ghé thăm các vườn quốc gia cho phép du khách quan sát động vật hoang dã trong môi trường tự nhiên.'
+  },
+  {
+    id: 'anim-seed-03',
+    word: 'natural habitat',
+    ipa: '/ˈnætʃ.ər.əl ˈhæb.ɪ.tæt/',
+    stressPattern: 'NAT-u-ral HAB-i-tat [O o o • O o o]',
+    partOfSpeech: 'collocation',
+    topic: 'animals',
+    bandLevel: '4.5 - 6.0',
+    vietnameseMeaning: 'môi trường sống tự nhiên',
+    synonymsByBand: {
+      band45: 'home of animals',
+      band65: 'native environment',
+      band80: 'indigenous ecological niche'
+    },
+    collocations: ['destroy natural habitats', 'thrive in natural habitat', 'habitat destruction'],
+    wordFamily: {
+      noun: ['habitat (môi trường sống)', 'habitation (sự cư trú)'],
+      verb: ['inhabit (cư trú, sinh sống)'],
+      adjective: ['inhabitable (có thể sinh sống được)']
+    },
+    exampleSentence: 'Deforestation is depriving countless rare creatures of their natural habitat.',
+    exampleTranslation: 'Nạn phá rừng đang tước đoạt môi trường sống tự nhiên của vô số sinh vật quý hiếm.'
+  },
+  {
+    id: 'anim-seed-04',
+    word: 'endangered species',
+    ipa: '/ɪnˈdeɪn.dʒəd ˈspiː.ʃiːz/',
+    stressPattern: 'en-DAN-gered SPE-cies [o O o • O o]',
+    partOfSpeech: 'collocation',
+    topic: 'animals',
+    bandLevel: '6.0 - 7.5',
+    vietnameseMeaning: 'các loài động vật có nguy cơ tuyệt chủng',
+    synonymsByBand: {
+      band45: 'dying animals',
+      band65: 'threatened species',
+      band80: 'creatures facing imminent extinction'
+    },
+    collocations: ['conserve endangered species', 'poaching of endangered species', 'endangered species list'],
+    wordFamily: {
+      noun: ['danger (mối nguy)', 'endangerment (sự lâm nguy)'],
+      verb: ['endanger (gây nguy hiểm)'],
+      adjective: ['endangered (bị đe dọa tuyệt chủng)']
+    },
+    exampleSentence: 'Strict international trade embargoes are imperative to protect endangered species from poachers.',
+    exampleTranslation: 'Các lệnh cấm vận thương mại quốc tế nghiêm ngặt là điều cấp bách để bảo vệ các loài có nguy cơ tuyệt chủng khỏi bọn săn trộm.'
+  },
+  {
+    id: 'anim-seed-05',
+    word: 'biodiversity conservation',
+    ipa: '/ˌbaɪ.əʊ.daɪˈvɜː.sə.ti ˌkɒn.səˈveɪ.ʃən/',
+    stressPattern: 'bi-o-di-VER-si-ty con-ser-VA-tion [o o o O o o • o o O o]',
+    partOfSpeech: 'collocation',
+    topic: 'animals',
+    bandLevel: '7.5+',
+    vietnameseMeaning: 'bảo tồn đa dạng sinh học',
+    synonymsByBand: {
+      band45: 'saving all animals',
+      band65: 'protecting animal species',
+      band80: 'preserving biological diversity and ecosystem equilibrium'
+    },
+    collocations: ['prioritize biodiversity conservation', 'biodiversity conservation initiative', 'global biodiversity treaty'],
+    wordFamily: {
+      noun: ['biodiversity (đa dạng sinh học)', 'conservation (sự bảo tồn)', 'conservationist (nhà bảo tồn)'],
+      verb: ['conserve (bảo tồn)'],
+      adjective: ['biodiverse (đa dạng sinh học)', 'conservative (bảo thủ / thận trọng)']
+    },
+    exampleSentence: 'Governments must incorporate biodiversity conservation into mainstream economic planning to avert ecological collapse.',
+    exampleTranslation: 'Các chính phủ buộc phải lồng ghép việc bảo tồn đa dạng sinh học vào quy hoạch kinh tế chủ đạo để ngăn chặn sự sụp đổ sinh thái.'
+  },
+  {
+    id: 'anim-seed-06',
+    word: 'ecological balance',
+    ipa: '/ˌiː.kəˈlɒdʒ.ɪ.kəl ˈbæl.əns/',
+    stressPattern: 'e-co-LOG-i-cal BAL-ance [o o O o o • O o]',
+    partOfSpeech: 'collocation',
+    topic: 'animals',
+    bandLevel: '7.5+',
+    vietnameseMeaning: 'sự cân bằng sinh thái',
+    synonymsByBand: {
+      band45: 'nature balance',
+      band65: 'environmental equilibrium',
+      band80: 'delicate homeostasis of the biosphere'
+    },
+    collocations: ['disrupt the ecological balance', 'maintain ecological balance', 'restore ecological balance'],
+    wordFamily: {
+      noun: ['ecology (sinh thái học)', 'ecologist (nhà sinh thái học)', 'balance (sự cân bằng)'],
+      verb: ['balance (cân bằng)'],
+      adjective: ['ecological (thuộc về sinh thái)']
+    },
+    exampleSentence: 'The eradication of apex predators can trigger catastrophic chain reactions that upend the entire ecological balance.',
+    exampleTranslation: 'Sự tiêu diệt các loài thú săn mồi đầu chuỗi thức ăn có thể châm ngòi cho những phản ứng dây chuyền thảm khốc làm đảo lộn toàn bộ sự cân bằng sinh thái.'
+  },
+
+  // ==========================================
+  // TOPIC 2: ART (NGHỆ THUẬT & THẨM MỸ)
+  // ==========================================
+  {
+    id: 'art-seed-01',
+    word: 'painting',
+    ipa: '/ˈpeɪn.tɪŋ/',
+    stressPattern: 'PAINT-ing [O o]',
+    partOfSpeech: 'noun',
+    topic: 'art',
+    bandLevel: 'Mất gốc',
+    vietnameseMeaning: 'bức tranh, bức vẽ',
+    synonymsByBand: {
+      band45: 'picture',
+      band65: 'artwork',
+      band80: 'pictorial composition'
+    },
+    collocations: ['oil painting', 'landscape painting', 'hang a painting', 'admire a painting'],
+    wordFamily: {
+      noun: ['paint (sơn)', 'painter (họa sĩ)', 'painting (bức tranh)'],
+      verb: ['paint (vẽ tranh)']
+    },
+    exampleSentence: 'She purchased a colourful oil painting to brighten up her living room.',
+    exampleTranslation: 'Cô ấy đã mua một bức tranh sơn dầu rực rỡ sắc màu để làm bừng sáng phòng khách của mình.'
+  },
+  {
+    id: 'art-seed-02',
+    word: 'museum',
+    ipa: '/mjuːˈziː.əm/',
+    stressPattern: 'mu-SE-um [o O o]',
+    partOfSpeech: 'noun',
+    topic: 'art',
+    bandLevel: '< 4.5',
+    vietnameseMeaning: 'bảo tàng',
+    synonymsByBand: {
+      band45: 'old things building',
+      band65: 'exhibition gallery',
+      band80: 'custodial repository of relics'
+    },
+    collocations: ['visit a museum', 'art museum', 'free admission to museums', 'museum exhibits'],
+    wordFamily: {
+      noun: ['museum (bảo tàng)', 'museology (bảo tàng học)']
+    },
+    exampleSentence: 'School excursions to history museums help students absorb historical lessons vividly.',
+    exampleTranslation: 'Các chuyến đi dã ngoại của trường tới các bảo tàng lịch sử giúp học sinh tiếp thu các bài học lịch sử một cách sống động.'
+  },
+  {
+    id: 'art-seed-03',
+    word: 'visual art',
+    ipa: '/ˈvɪʒ.u.əl ɑːt/',
+    stressPattern: 'VI-su-al ART [O o • O]',
+    partOfSpeech: 'collocation',
+    topic: 'art',
+    bandLevel: '4.5 - 6.0',
+    vietnameseMeaning: 'nghệ thuật thị giác (hội họa, điêu khắc, nhiếp ảnh)',
+    synonymsByBand: {
+      band45: 'things to look at',
+      band65: 'fine arts and sculpture',
+      band80: 'plastic and visual aesthetics'
+    },
+    collocations: ['contemporary visual art', 'appreciate visual art', 'visual art exhibition'],
+    wordFamily: {
+      noun: ['vision (tầm nhìn, thị lực)'],
+      adjective: ['visual (thuộc về thị giác)'],
+      adverb: ['visually (về mặt thị giác)']
+    },
+    exampleSentence: 'Exposure to visual art enhances adolescents’ spatial imagination and emotional maturity.',
+    exampleTranslation: 'Việc tiếp xúc với nghệ thuật thị giác giúp tăng cường trí tưởng tượng không gian và sự trưởng thành cảm xúc của thanh thiếu niên.'
+  },
+  {
+    id: 'art-seed-04',
+    word: 'masterpiece',
+    ipa: '/ˈmɑː.stə.piːs/',
+    stressPattern: 'MAS-ter-piece [O o o]',
+    partOfSpeech: 'noun',
+    topic: 'art',
+    bandLevel: '6.0 - 7.5',
+    vietnameseMeaning: 'kiệt tác, tác phẩm nghệ thuật để đời',
+    synonymsByBand: {
+      band45: 'great artwork',
+      band65: 'magnum opus',
+      band80: 'quintessential tour de force'
+    },
+    collocations: ['artistic masterpiece', 'acclaimed masterpiece', 'create a masterpiece'],
+    wordFamily: {
+      noun: ['master (bậc thầy)', 'masterpiece (kiệt tác)', 'mastery (sự tinh thông)']
+    },
+    exampleSentence: 'Leonardo da Vinci’s Mona Lisa is widely venerated as an incomparable artistic masterpiece.',
+    exampleTranslation: 'Bức họa Mona Lisa của Leonardo da Vinci được tôn sùng rộng rãi như một kiệt tác nghệ thuật vô song.'
+  },
+  {
+    id: 'art-seed-05',
+    word: 'evoke emotions',
+    ipa: '/ɪˈvəʊk ɪˈməʊ.ʃənz/',
+    stressPattern: 'e-VOKE e-MO-tions [o O • o O o]',
+    partOfSpeech: 'collocation',
+    topic: 'art',
+    bandLevel: '6.0 - 7.5',
+    vietnameseMeaning: 'gợi lên những xúc cảm sâu lắng',
+    synonymsByBand: {
+      band45: 'make people feel feelings',
+      band65: 'stir emotional resonance',
+      band80: 'elicit visceral psychological responses'
+    },
+    collocations: ['evoke profound emotions', 'power to evoke emotions', 'evoke nostalgia'],
+    wordFamily: {
+      noun: ['evocation (sự gợi lên)'],
+      verb: ['evoke (gợi lên, khơi dậy)'],
+      adjective: ['evocative (gợi cảm, gợi nhớ)']
+    },
+    exampleSentence: 'Abstract art possesses the uncanny potency to evoke profound emotions without figurative imagery.',
+    exampleTranslation: 'Nghệ thuật trừu tượng sở hữu sức mạnh kỳ diệu có thể gợi lên những cảm xúc sâu sắc mà không cần đến hình ảnh cụ thể.'
+  },
+  {
+    id: 'art-seed-06',
+    word: 'aesthetic appeal',
+    ipa: '/esˈθet.ɪk əˈpiːl/',
+    stressPattern: 'aes-THET-ic ap-PEAL [o O o • o O]',
+    partOfSpeech: 'collocation',
+    topic: 'art',
+    bandLevel: '7.5+',
+    vietnameseMeaning: 'sức cuốn hút về mặt thẩm mỹ',
+    synonymsByBand: {
+      band45: 'looking pretty',
+      band65: 'visual beauty and charm',
+      band80: 'sublime aesthetic refinement'
+    },
+    collocations: ['heighten aesthetic appeal', 'aesthetic appeal of architecture', 'marred of aesthetic appeal'],
+    wordFamily: {
+      noun: ['aesthetics (thẩm mỹ học)', 'aesthetician (nhà thẩm mỹ học)'],
+      adjective: ['aesthetic (thuộc về thẩm mỹ)'],
+      adverb: ['aesthetically (về mặt thẩm mỹ)']
+    },
+    exampleSentence: 'Architects should harmonize functional utility with striking aesthetic appeal in metropolitan structures.',
+    exampleTranslation: 'Các kiến trúc sư nên hòa quyện công năng hữu dụng với sức cuốn hút thẩm mỹ ấn tượng trong các công trình đô thị.'
+  },
+  {
+    id: 'art-seed-07',
+    word: 'cultural heritage',
+    ipa: '/ˈkʌl.tʃər.əl ˈher.ɪ.tɪdʒ/',
+    stressPattern: 'CUL-tur-al HER-i-tage [O o o • O o o]',
+    partOfSpeech: 'collocation',
+    topic: 'art',
+    bandLevel: '7.5+',
+    vietnameseMeaning: 'di sản văn hóa truyền thống',
+    synonymsByBand: {
+      band45: 'old traditions',
+      band65: 'historical legacy',
+      band80: 'invaluable ancestral patrimony'
+    },
+    collocations: ['safeguard cultural heritage', 'tangible cultural heritage', 'rich cultural heritage'],
+    wordFamily: {
+      noun: ['culture (văn hóa)', 'heritage (di sản)'],
+      adjective: ['cultural (thuộc về văn hóa)']
+    },
+    exampleSentence: 'Traditional folk melodies embody intangible cultural heritage that warrants stringent preservation against globalization.',
+    exampleTranslation: 'Các giai điệu dân ca truyền thống kết tinh di sản văn hóa phi vật thể đòi hỏi sự bảo tồn nghiêm ngặt trước làn sóng toàn cầu hóa.'
+  },
+
+  // ==========================================
+  // TOPIC 3: CELEBRATIONS (LỄ KỶ NIỆM & NGÀY HỘI)
+  // ==========================================
+  {
+    id: 'cel-seed-01',
+    word: 'birthday party',
+    ipa: '/ˈbɜːθ.deɪ ˌpɑː.ti/',
+    stressPattern: 'BIRTH-day PAR-ty [O o • O o]',
+    partOfSpeech: 'collocation',
+    topic: 'celebrations',
+    bandLevel: 'Mất gốc',
+    vietnameseMeaning: 'bữa tiệc sinh nhật',
+    synonymsByBand: {
+      band45: 'birthday celebration',
+      band65: 'birthday gathering',
+      band80: 'anniversary observance'
+    },
+    collocations: ['throw a birthday party', 'attend a birthday party', 'birthday party invitation'],
+    wordFamily: {
+      noun: ['birthday (ngày sinh)', 'party (bữa tiệc)']
+    },
+    exampleSentence: 'We organized a surprise birthday party for our classmate with balloons and cake.',
+    exampleTranslation: 'Chúng tôi đã tổ chức một bữa tiệc sinh nhật bất ngờ cho bạn cùng lớp với bóng bay và bánh kem.'
+  },
+  {
+    id: 'cel-seed-02',
+    word: 'special occasion',
+    ipa: '/ˌspeʃ.əl əˈkeɪ.ʒən/',
+    stressPattern: 'SPE-cial oc-CA-sion [O o • o O o]',
+    partOfSpeech: 'collocation',
+    topic: 'celebrations',
+    bandLevel: '< 4.5',
+    vietnameseMeaning: 'dịp đặc biệt, sự kiện quan trọng',
+    synonymsByBand: {
+      band45: 'big day',
+      band65: 'momentous event',
+      band80: 'red-letter milestone'
+    },
+    collocations: ['dress up for a special occasion', 'mark a special occasion', 'cater to special occasions'],
+    wordFamily: {
+      noun: ['occasion (dịp, cơ hội)'],
+      adjective: ['occasional (thỉnh thoảng)'],
+      adverb: ['occasionally (thỉnh thoảng)']
+    },
+    exampleSentence: 'Champagne is traditionally uncorked on special occasions such as weddings and graduations.',
+    exampleTranslation: 'Rượu sâm-panh theo truyền thống thường được mở nắp vào những dịp đặc biệt như đám cưới hay lễ tốt nghiệp.'
+  },
+  {
+    id: 'cel-seed-03',
+    word: 'traditional festival',
+    ipa: '/trəˈdɪʃ.ən.əl ˈfes.tɪ.vəl/',
+    stressPattern: 'tra-DI-tion-al FES-ti-val [o O o o • O o o]',
+    partOfSpeech: 'collocation',
+    topic: 'celebrations',
+    bandLevel: '4.5 - 6.0',
+    vietnameseMeaning: 'lễ hội truyền thống',
+    synonymsByBand: {
+      band45: 'old holiday celebration',
+      band65: 'folklore carnival',
+      band80: 'time-honored customary festivities'
+    },
+    collocations: ['partake in traditional festivals', 'lively traditional festival', 'annual traditional festival'],
+    wordFamily: {
+      noun: ['tradition (truyền thống)', 'festival (lễ hội)', 'festivity (sự hội hè)'],
+      adjective: ['traditional (thuộc truyền thống)', 'festive (vui như hội)']
+    },
+    exampleSentence: 'Lunar New Year is undeniably the most celebrated traditional festival across numerous East Asian nations.',
+    exampleTranslation: 'Tết Nguyên Đán không thể chối cãi là lễ hội truyền thống được chào đón nồng nhiệt nhất tại nhiều quốc gia Đông Á.'
+  },
+  {
+    id: 'cel-seed-04',
+    word: 'commemorate',
+    ipa: '/kəˈmem.ə.reɪt/',
+    stressPattern: 'com-MEM-o-rate [o O o o]',
+    partOfSpeech: 'verb',
+    topic: 'celebrations',
+    bandLevel: '6.0 - 7.5',
+    vietnameseMeaning: 'tưởng nhớ, kỷ niệm trang trọng',
+    synonymsByBand: {
+      band45: 'remember old people',
+      band65: 'honor the memory of',
+      band80: 'solemnly memorialize'
+    },
+    collocations: ['commemorate national heroes', 'commemorate an anniversary', 'monument to commemorate'],
+    wordFamily: {
+      noun: ['commemoration (sự tưởng niệm)', 'commemorative (vật kỷ niệm)'],
+      verb: ['commemorate (tưởng niệm)'],
+      adjective: ['commemorative (mang tính tưởng niệm)']
+    },
+    exampleSentence: 'A nationwide moment of silence was observed to commemorate fallen soldiers who defended civic freedom.',
+    exampleTranslation: 'Một phút mặc niệm toàn quốc đã được cử hành để tưởng nhớ những người lính đã ngã xuống bảo vệ tự do cho nhân dân.'
+  },
+  {
+    id: 'cel-seed-05',
+    word: 'festive atmosphere',
+    ipa: '/ˈfes.tɪv ˈæt.məs.fɪər/',
+    stressPattern: 'FES-tive AT-mos-phere [O o • O o o]',
+    partOfSpeech: 'collocation',
+    topic: 'celebrations',
+    bandLevel: '6.0 - 7.5',
+    vietnameseMeaning: 'bầu không khí lễ hội náo nức rộn ràng',
+    synonymsByBand: {
+      band45: 'fun and happy feeling',
+      band65: 'jovial ambiance',
+      band80: 'exuberant celebratory atmosphere'
+    },
+    collocations: ['soak in the festive atmosphere', 'permeate with a festive atmosphere', 'vibrant festive atmosphere'],
+    wordFamily: {
+      noun: ['atmosphere (bầu không khí)', 'festivity (lễ hội)'],
+      adjective: ['atmospheric (thuộc khí quyển)', 'festive (nhộn nhịp không khí lễ hội)']
+    },
+    exampleSentence: 'Streets illuminated with dazzling lanterns fostered a vibrant festive atmosphere throughout the capital.',
+    exampleTranslation: 'Những con phố rực sáng với lồng đèn lộng lẫy đã tạo nên một bầu không khí lễ hội rộn ràng khắp thủ đô.'
+  },
+  {
+    id: 'cel-seed-06',
+    word: 'epoch-making celebration',
+    ipa: '/ˈiː.pɒk ˌmeɪ.kɪŋ ˌsel.əˈbreɪ.ʃən/',
+    stressPattern: 'E-poch ma-king cel-e-BRA-tion [O o • O o • o o O o]',
+    partOfSpeech: 'collocation',
+    topic: 'celebrations',
+    bandLevel: '7.5+',
+    vietnameseMeaning: 'đại lễ mang tầm vóc lịch sử / mở ra một kỷ nguyên mới',
+    synonymsByBand: {
+      band45: 'very important party',
+      band65: 'historic milestone celebration',
+      band80: 'momentous watershed commemoration'
+    },
+    collocations: ['host an epoch-making celebration', 'epoch-making jubilee', 'reverberate through epoch-making celebrations'],
+    wordFamily: {
+      noun: ['epoch (kỷ nguyên)', 'celebration (sự kỷ niệm)'],
+      verb: ['celebrate (ăn mừng)'],
+      adjective: ['epochal (mang tính bước ngoặt)']
+    },
+    exampleSentence: 'The centennial independence gala evolved into an epoch-making celebration that rekindled national solidarity.',
+    exampleTranslation: 'Đại lễ kỷ niệm 100 năm ngày độc lập đã trở thành một cột mốc lịch sử thắp sáng lại tinh thần đoàn kết toàn dân tộc.'
+  },
+
+  // ==========================================
+  // TOPIC 4: CLOTHES (TRANG PHỤC & THỜI TRANG)
+  // ==========================================
+  {
+    id: 'clo-seed-01',
+    word: 'casual clothes',
+    ipa: '/ˈkæʒ.u.əl kləʊðz/',
+    stressPattern: 'CAS-u-al CLOTHES [O o • O]',
+    partOfSpeech: 'collocation',
+    topic: 'clothes',
+    bandLevel: 'Mất gốc',
+    vietnameseMeaning: 'quần áo thường ngày, đồ mặc thoải mái',
+    synonymsByBand: {
+      band45: 'simple clothes',
+      band65: 'informal attire',
+      band80: 'relaxed non-ceremonial garments'
+    },
+    collocations: ['wear casual clothes', 'dress in casual clothes', 'switch to casual clothes'],
+    wordFamily: {
+      noun: ['casualness (tính tự nhiên, thoải mái)'],
+      adjective: ['casual (thường ngày, bình dị)'],
+      adverb: ['casually (một cách bình dị)']
+    },
+    exampleSentence: 'Employees are permitted to wear casual clothes on Fridays to foster a relaxed office environment.',
+    exampleTranslation: 'Nhân viên được phép mặc trang phục thường ngày vào thứ Sáu để tạo bầu không khí văn phòng thư thái.'
+  },
+  {
+    id: 'clo-seed-02',
+    word: 'fashion trend',
+    ipa: '/ˈfæʃ.ən trend/',
+    stressPattern: 'FASH-ion TREND [O o • O]',
+    partOfSpeech: 'collocation',
+    topic: 'clothes',
+    bandLevel: '< 4.5',
+    vietnameseMeaning: 'xu hướng thời trang',
+    synonymsByBand: {
+      band45: 'new clothing styles',
+      band65: 'sartorial vogue',
+      band80: 'prevailing stylistic paradigm'
+    },
+    collocations: ['follow fashion trends', 'set a fashion trend', 'fleeting fashion trends'],
+    wordFamily: {
+      noun: ['fashion (thời trang)', 'trend (xu hướng)'],
+      adjective: ['fashionable (hợp thời trang)', 'trendy (bắt trend)']
+    },
+    exampleSentence: 'Adolescents often feel peer pressure to keep up with ephemeral fashion trends on social media.',
+    exampleTranslation: 'Thanh thiếu niên thường chịu áp lực đồng trang lứa để chạy theo những xu hướng thời trang sớm nở tối tàn trên mạng xã hội.'
+  },
+  {
+    id: 'clo-seed-03',
+    word: 'dress code',
+    ipa: '/ˈdres ˌkəʊd/',
+    stressPattern: 'DRESS CODE [O • O]',
+    partOfSpeech: 'collocation',
+    topic: 'clothes',
+    bandLevel: '4.5 - 6.0',
+    vietnameseMeaning: 'quy định về trang phục',
+    synonymsByBand: {
+      band45: 'clothing rules',
+      band65: 'sartorial guidelines',
+      band80: 'prescribed sartorial protocol'
+    },
+    collocations: ['adhere to a dress code', 'strict dress code', 'enforce a dress code'],
+    wordFamily: {
+      noun: ['dress (váy, trang phục)', 'code (bộ quy tắc)'],
+      verb: ['dress (ăn mặc)']
+    },
+    exampleSentence: 'Law firms typically mandate a formal dress code to project competence and corporate decorum.',
+    exampleTranslation: 'Các văn phòng luật sư thường bắt buộc quy định trang phục trang trọng nhằm thể hiện năng lực và sự chuẩn mực doanh nghiệp.'
+  },
+  {
+    id: 'clo-seed-04',
+    word: 'sartorial elegance',
+    ipa: '/sɑːˈtɔː.ri.əl ˈel.ɪ.ɡəns/',
+    stressPattern: 'sar-TO-ri-al EL-e-gance [o O o o • O o o]',
+    partOfSpeech: 'collocation',
+    topic: 'clothes',
+    bandLevel: '6.0 - 7.5',
+    vietnameseMeaning: 'sự thanh lịch, tinh tế trong phong cách may mặc',
+    synonymsByBand: {
+      band45: 'dressing nicely',
+      band65: 'stylish sophistication',
+      band80: 'impeccable sartorial finesse'
+    },
+    collocations: ['embody sartorial elegance', 'epitome of sartorial elegance', 'effortless sartorial elegance'],
+    wordFamily: {
+      noun: ['elegance (sự thanh lịch)'],
+      adjective: ['sartorial (thuộc về may mặc/trang phục)', 'elegant (thanh lịch)'],
+      adverb: ['elegantly (một cách thanh lịch)']
+    },
+    exampleSentence: 'Tailored woolen suits epitomize timeless sartorial elegance suitable for diplomatic banquets.',
+    exampleTranslation: 'Những bộ vest dạ may đo là hình mẫu cho sự thanh lịch vượt thời gian, rất thích hợp trong các yến tiệc ngoại giao.'
+  },
+  {
+    id: 'clo-seed-05',
+    word: 'fast fashion consumption',
+    ipa: '/fɑːst ˈfæʃ.ən kənˈsʌmp.ʃən/',
+    stressPattern: 'FAST FASH-ion con-SUMP-tion [O • O o • o O o]',
+    partOfSpeech: 'collocation',
+    topic: 'clothes',
+    bandLevel: '6.0 - 7.5',
+    vietnameseMeaning: 'tiêu thụ thời trang nhanh (gây hại môi trường)',
+    synonymsByBand: {
+      band45: 'buying cheap clothes often',
+      band65: 'disposable clothing culture',
+      band80: 'frenetic acquisition of ephemeral apparel'
+    },
+    collocations: ['curb fast fashion consumption', 'environmental fallout of fast fashion consumption'],
+    wordFamily: {
+      noun: ['consumer (người tiêu dùng)', 'consumption (sự tiêu thụ)'],
+      verb: ['consume (tiêu thụ)'],
+      adjective: ['consumable (có thể tiêu thụ được)']
+    },
+    exampleSentence: 'Excessive fast fashion consumption fuels textile landfills and exacerbates toxic microplastic contamination.',
+    exampleTranslation: 'Việc tiêu thụ thời trang nhanh quá mức đang làm đầy các bãi rác dệt may và làm trầm trọng thêm tình trạng ô nhiễm vi nhựa độc hại.'
+  },
+  {
+    id: 'clo-seed-06',
+    word: 'haute couture',
+    ipa: '/ˌəʊt kuːˈtʃʊər/',
+    stressPattern: 'oht koo-TOOR [o • O]',
+    partOfSpeech: 'noun',
+    topic: 'clothes',
+    bandLevel: '7.5+',
+    vietnameseMeaning: 'thời trang cao cấp may đo thủ công tinh xảo',
+    synonymsByBand: {
+      band45: 'expensive designer clothes',
+      band65: 'bespoke high fashion',
+      band80: 'exclusive bespoke artisanal tailoring'
+    },
+    collocations: ['haute couture runway', 'exclusive haute couture house', 'haute couture craftsmanship'],
+    wordFamily: {
+      noun: ['couturier (nhà thiết kế thời trang cao cấp)']
+    },
+    exampleSentence: 'Beyond mere commercial viability, haute couture serves as an avant-garde canvas for conceptual craftsmanship.',
+    exampleTranslation: 'Vượt lên trên tính thương mại đơn thuần, thời trang cao cấp đóng vai trò như một bức tranh tiên phong cho sự tinh xảo thủ công mang tính ý niệm.'
+  },
+
+  // ==========================================
+  // TOPIC 5: ENVIRONMENT (MÔI TRƯỜNG & HỆ SINH THÁI)
+  // ==========================================
+  {
+    id: 'env-seed-01',
+    word: 'pollution',
+    ipa: '/pəˈluː.ʃən/',
+    stressPattern: 'pol-LU-tion [o O o]',
+    partOfSpeech: 'noun',
+    topic: 'environment',
+    bandLevel: 'Mất gốc',
+    vietnameseMeaning: 'sự ô nhiễm (không khí, nước, đất)',
+    synonymsByBand: {
+      band45: 'dirty air or water',
+      band65: 'environmental contamination',
+      band80: 'deleterious ecological toxicity'
+    },
+    collocations: ['air pollution', 'combat pollution', 'industrial pollution', 'reduce pollution'],
+    wordFamily: {
+      noun: ['pollutant (chất gây ô nhiễm)', 'pollution (sự ô nhiễm)'],
+      verb: ['pollute (làm ô nhiễm)'],
+      adjective: ['polluted (bị ô nhiễm)']
+    },
+    exampleSentence: 'Severe air pollution in metropolitan centers triggers chronic respiratory diseases among young infants.',
+    exampleTranslation: 'Ô nhiễm không khí nghiêm trọng tại các đô thị gây ra các bệnh đường hô hấp mãn tính ở trẻ nhỏ.'
+  },
+  {
+    id: 'env-seed-02',
+    word: 'recycle',
+    ipa: '/ˌriːˈsaɪ.kəl/',
+    stressPattern: 're-CY-cle [o O o]',
+    partOfSpeech: 'verb',
+    topic: 'environment',
+    bandLevel: '< 4.5',
+    vietnameseMeaning: 'tái chế (rác thải, chai nhựa)',
+    synonymsByBand: {
+      band45: 'use rubbish again',
+      band65: 'reprocess waste materials',
+      band80: 'reclaim secondary materials for cyclical reuse'
+    },
+    collocations: ['recycle waste', 'recycle plastic bottles', 'promote recycling programs'],
+    wordFamily: {
+      noun: ['recycling (việc tái chế)', 'recyclability (khả năng tái chế)'],
+      verb: ['recycle (tái chế)'],
+      adjective: ['recyclable (có thể tái chế)']
+    },
+    exampleSentence: 'Households should systematically sort their garbage to ensure paper and glass are recycled efficiently.',
+    exampleTranslation: 'Các hộ gia đình nên phân loại rác có hệ thống để bảo đảm giấy và thủy tinh được tái chế hiệu quả.'
+  },
+  {
+    id: 'env-seed-03',
+    word: 'renewable energy',
+    ipa: '/rɪˈnjuː.ə.bəl ˈen.ə.dʒi/',
+    stressPattern: 're-NEW-a-ble EN-er-gy [o O o o • O o o]',
+    partOfSpeech: 'collocation',
+    topic: 'environment',
+    bandLevel: '4.5 - 6.0',
+    vietnameseMeaning: 'năng lượng tái tạo (mặt trời, gió, thủy triều)',
+    synonymsByBand: {
+      band45: 'clean green power',
+      band65: 'sustainable energy sources',
+      band80: 'inexhaustible decarbonized alternative energy'
+    },
+    collocations: ['invest in renewable energy', 'transition to renewable energy', 'renewable energy infrastructure'],
+    wordFamily: {
+      noun: ['energy (năng lượng)', 'renewal (sự đổi mới)'],
+      verb: ['renew (làm mới, gia hạn)'],
+      adjective: ['renewable (có thể tái tạo)']
+    },
+    exampleSentence: 'Subsidizing renewable energy installations encourages homeowners to install rooftop photovoltaic solar panels.',
+    exampleTranslation: 'Việc trợ cấp lắp đặt năng lượng tái tạo khuyến khích các chủ hộ lắp các tấm pin năng lượng mặt trời trên mái nhà.'
+  },
+  {
+    id: 'env-seed-04',
+    word: 'carbon footprint',
+    ipa: '/ˈkɑː.bən ˈfʊt.prɪnt/',
+    stressPattern: 'CAR-bon FOOT-print [O o • O o]',
+    partOfSpeech: 'collocation',
+    topic: 'environment',
+    bandLevel: '6.0 - 7.5',
+    vietnameseMeaning: 'dấu chân carbon (lượng phát thải khí nhà kính cá nhân/doanh nghiệp)',
+    synonymsByBand: {
+      band45: 'smoke from things we use',
+      band65: 'greenhouse gas emissions',
+      band80: 'cumulative anthropogenic greenhouse footprint'
+    },
+    collocations: ['offset one\'s carbon footprint', 'minimize carbon footprint', 'measure corporate carbon footprint'],
+    wordFamily: {
+      noun: ['carbon (nguyên tố carbon)', 'footprint (dấu chân)']
+    },
+    exampleSentence: 'Frequent air travel drastically balloons an individual\'s annual carbon footprint compared to rail transit.',
+    exampleTranslation: 'Việc di chuyển bằng máy bay thường xuyên làm gia tăng đáng kể dấu chân carbon hàng năm của một cá nhân so với đi tàu hỏa.'
+  },
+  {
+    id: 'env-seed-05',
+    word: 'sustainable development',
+    ipa: '/səˈsteɪ.nə.bəl dɪˈvel.əp.mənt/',
+    stressPattern: 'sus-TAIN-a-ble de-VEL-op-ment [o O o o • o O o o]',
+    partOfSpeech: 'collocation',
+    topic: 'environment',
+    bandLevel: '6.0 - 7.5',
+    vietnameseMeaning: 'phát triển bền vững',
+    synonymsByBand: {
+      band45: 'good long-term growth',
+      band65: 'ecologically viable progress',
+      band80: 'harmonious equilibrium between macroeconomic growth and biospheric stewardship'
+    },
+    collocations: ['achieve sustainable development', 'principles of sustainable development', 'sustainable development goals'],
+    wordFamily: {
+      noun: ['sustainability (tính bền vững)', 'development (sự phát triển)'],
+      verb: ['sustain (duy trì)', 'develop (phát triển)'],
+      adjective: ['sustainable (bền vững)']
+    },
+    exampleSentence: 'Striking a pragmatic balance between infrastructural expansion and ecological stewardship is essential for sustainable development.',
+    exampleTranslation: 'Đạt được sự cân bằng thực tế giữa mở rộng hạ tầng và gìn giữ sinh thái là điều cốt lõi cho sự phát triển bền vững.'
+  },
+  {
+    id: 'env-seed-06',
+    word: 'environmental degradation',
+    ipa: '/ɪnˌvaɪ.rənˈmen.təl ˌdeɡ.rəˈdeɪ.ʃən/',
+    stressPattern: 'en-vi-ron-MEN-tal deg-ra-DA-tion [o o o O o • o o O o]',
+    partOfSpeech: 'collocation',
+    topic: 'environment',
+    bandLevel: '7.5+',
+    vietnameseMeaning: 'sự suy thoái môi trường nghiêm trọng',
+    synonymsByBand: {
+      band45: 'nature getting ruined',
+      band65: 'ecological deterioration',
+      band80: 'irreversible biospheric dilapidation and ecological breakdown'
+    },
+    collocations: ['accelerate environmental degradation', 'stem environmental degradation', 'consequences of environmental degradation'],
+    wordFamily: {
+      noun: ['degradation (sự suy thoái)', 'environment (môi trường)'],
+      verb: ['degrade (làm suy thoái)'],
+      adjective: ['environmental (thuộc môi trường)', 'degraded (bị suy thoái)']
+    },
+    exampleSentence: 'Unchecked agrarian runoff and chemical discharges are driving irreversible environmental degradation across freshwater river basins.',
+    exampleTranslation: 'Nước thải nông nghiệp và hóa chất không kiểm soát đang đẩy các lưu vực sông nước ngọt vào tình trạng suy thoái môi trường không thể đảo ngược.'
+  },
+
+  // ==========================================
+  // TOPIC 6: FAMOUS PEOPLE (NGƯỜI NỔI TIẾNG & HÌNH MẪU)
+  // ==========================================
+  {
+    id: 'fam-seed-01',
+    word: 'pop star',
+    ipa: '/ˈpɒp stɑːr/',
+    stressPattern: 'POP STAR [O • O]',
+    partOfSpeech: 'collocation',
+    topic: 'famous-people',
+    bandLevel: 'Mất gốc',
+    vietnameseMeaning: 'ngôi sao nhạc pop, ca sĩ nổi tiếng',
+    synonymsByBand: {
+      band45: 'famous singer',
+      band65: 'musical celebrity',
+      band80: 'iconic musical virtuoso'
+    },
+    collocations: ['favourite pop star', 'teen pop star', 'interview a pop star'],
+    wordFamily: {
+      noun: ['star (ngôi sao)', 'stardom (sự nổi tiếng)']
+    },
+    exampleSentence: 'Teenagers often plaster posters of their beloved pop stars all over their bedroom walls.',
+    exampleTranslation: 'Thanh thiếu niên thường dán áp phích các ngôi sao nhạc pop yêu thích khắp các bức tường phòng ngủ.'
+  },
+  {
+    id: 'fam-seed-02',
+    word: 'celebrity',
+    ipa: '/səˈleb.rə.ti/',
+    stressPattern: 'ce-LEB-ri-ty [o O o o]',
+    partOfSpeech: 'noun',
+    topic: 'famous-people',
+    bandLevel: '< 4.5',
+    vietnameseMeaning: 'người nổi tiếng trong giới giải trí',
+    synonymsByBand: {
+      band45: 'famous person',
+      band65: 'public figure',
+      band80: 'prominent luminary'
+    },
+    collocations: ['celebrity gossip', 'celebrity endorsement', 'hollywood celebrity'],
+    wordFamily: {
+      noun: ['celebrity (sự nổi tiếng / người nổi tiếng)'],
+      verb: ['celebrate (ăn mừng)'],
+      adjective: ['celebrated (lừng danh, được ca tụng)']
+    },
+    exampleSentence: 'Commercial brands frequently pay fortunes for celebrity endorsements to boost consumer appeal.',
+    exampleTranslation: 'Các thương hiệu thương mại thường chi cả gia tài cho sự quảng bá từ người nổi tiếng để tăng sức hút tiêu dùng.'
+  },
+  {
+    id: 'fam-seed-03',
+    word: 'role model',
+    ipa: '/ˈrəʊl ˌmɒd.əl/',
+    stressPattern: 'ROLE MOD-el [O • O o]',
+    partOfSpeech: 'collocation',
+    topic: 'famous-people',
+    bandLevel: '4.5 - 6.0',
+    vietnameseMeaning: 'hình mẫu lý tưởng, tấm gương noi theo',
+    synonymsByBand: {
+      band45: 'good example person',
+      band65: 'exemplary figure',
+      band80: 'paragon of virtue and diligence'
+    },
+    collocations: ['serve as a role model', 'positive role model', 'inspirational role model'],
+    wordFamily: {
+      noun: ['role (vai trò)', 'model (hình mẫu)']
+    },
+    exampleSentence: 'Philanthropic athletes who invest in community development serve as inspirational role models for youth.',
+    exampleTranslation: 'Các vận động viên giàu lòng nhân ái đầu tư vào phát triển cộng đồng đóng vai trò như những tấm gương truyền cảm hứng cho giới trẻ.'
+  },
+  {
+    id: 'fam-seed-04',
+    word: 'household name',
+    ipa: '/ˈhaʊs.həʊld neɪm/',
+    stressPattern: 'HOUSE-hold NAME [O o • O]',
+    partOfSpeech: 'collocation',
+    topic: 'famous-people',
+    bandLevel: '6.0 - 7.5',
+    vietnameseMeaning: 'cái tên quen thuộc với mọi nhà, người ai ai cũng biết',
+    synonymsByBand: {
+      band45: 'known by everyone',
+      band65: 'universally recognized figure',
+      band80: 'ubiquitous and renowned personality'
+    },
+    collocations: ['become a household name', 'turn into a household name', 'status of a household name'],
+    wordFamily: {
+      noun: ['household (hộ gia đình)']
+    },
+    exampleSentence: 'Winning an Olympic gold medal transformed the unassuming swimmer into an overnight household name.',
+    exampleTranslation: 'Chiến thắng tấm huy chương vàng Olympic đã biến kình ngư khiêm tốn thành một cái tên nổi tiếng khắp mọi nhà chỉ sau một đêm.'
+  },
+  {
+    id: 'fam-seed-05',
+    word: 'pinnacle of fame',
+    ipa: '/ˈpɪn.ə.kəl əv feɪm/',
+    stressPattern: 'PIN-na-cle of FAME [O o o • o • O]',
+    partOfSpeech: 'collocation',
+    topic: 'famous-people',
+    bandLevel: '7.5+',
+    vietnameseMeaning: 'đỉnh cao của danh vọng và sự nổi tiếng',
+    synonymsByBand: {
+      band45: 'very top famous',
+      band65: 'zenith of public acclaim',
+      band80: 'apotheosis of global adulation and prestige'
+    },
+    collocations: ['reach the pinnacle of fame', 'at the pinnacle of fame', 'endure the scrutiny at the pinnacle of fame'],
+    wordFamily: {
+      noun: ['pinnacle (đỉnh cao)', 'fame (danh tiếng)'],
+      adjective: ['famous (nổi tiếng)']
+    },
+    exampleSentence: 'Reaching the pinnacle of fame inevitably entails relentless invasion of personal privacy by intrusive paparazzi.',
+    exampleTranslation: 'Chạm tới đỉnh cao của danh vọng tất yếu phải trả giá bằng sự xâm phạm đời tư không ngừng nghỉ từ những tay săn ảnh tọc mạch.'
+  },
+
+  // ==========================================
+  // TOPIC 7: FOOD (ẨM THỰC & DINH DƯỠNG)
+  // ==========================================
+  {
+    id: 'foo-seed-01',
+    word: 'fast food',
+    ipa: '/ˌfɑːst ˈfuːd/',
+    stressPattern: 'FAST FOOD [O • O]',
+    partOfSpeech: 'collocation',
+    topic: 'food',
+    bandLevel: 'Mất gốc',
+    vietnameseMeaning: 'thức ăn nhanh (burger, khoai tây chiên)',
+    synonymsByBand: {
+      band45: 'quick meals',
+      band65: 'processed convenience food',
+      band80: 'nutrient-deficient processed fare'
+    },
+    collocations: ['eat fast food', 'fast food chain', 'addicted to fast food'],
+    wordFamily: {
+      noun: ['food (thức ăn)']
+    },
+    exampleSentence: 'Excessive consumption of greasy fast food contributes significantly to childhood obesity rates.',
+    exampleTranslation: 'Việc tiêu thụ quá nhiều thức ăn nhanh nhiều dầu mỡ góp phần đáng kể vào tỷ lệ béo phì ở trẻ nhỏ.'
+  },
+  {
+    id: 'foo-seed-02',
+    word: 'balanced diet',
+    ipa: '/ˌbæl.ənst ˈdaɪ.ət/',
+    stressPattern: 'BAL-anced DI-et [O o • O o]',
+    partOfSpeech: 'collocation',
+    topic: 'food',
+    bandLevel: '< 4.5',
+    vietnameseMeaning: 'chế độ ăn uống cân bằng, lành mạnh',
+    synonymsByBand: {
+      band45: 'healthy food mix',
+      band65: 'nutritious dietary regimen',
+      band80: 'wholesome and macro-nutritionally calibrated intake'
+    },
+    collocations: ['maintain a balanced diet', 'adopt a balanced diet', 'stick to a balanced diet'],
+    wordFamily: {
+      noun: ['balance (sự cân bằng)', 'diet (chế độ ăn)'],
+      verb: ['balance (cân bằng)'],
+      adjective: ['balanced (cân đối)', 'dietary (thuộc ăn uống)']
+    },
+    exampleSentence: 'Nutritionists consistently emphasize that maintaining a balanced diet rich in leafy vegetables preserves vitality.',
+    exampleTranslation: 'Các chuyên gia dinh dưỡng luôn nhấn mạnh rằng việc duy trì chế độ ăn cân bằng giàu rau xanh giúp gìn giữ sự tươi trẻ.'
+  },
+  {
+    id: 'foo-seed-03',
+    word: 'organic food',
+    ipa: '/ɔːˈɡæn.ɪk fuːd/',
+    stressPattern: 'or-GAN-ic FOOD [o O o • O]',
+    partOfSpeech: 'collocation',
+    topic: 'food',
+    bandLevel: '4.5 - 6.0',
+    vietnameseMeaning: 'thực phẩm hữu cơ (không dùng hóa chất/phân bón hóa học)',
+    synonymsByBand: {
+      band45: 'clean farm food',
+      band65: 'pesticide-free produce',
+      band80: 'bio-dynamically cultivated agricultural yield'
+    },
+    collocations: ['buy organic food', 'organic food market', 'certified organic food'],
+    wordFamily: {
+      noun: ['organ (cơ quan)', 'organism (sinh vật)'],
+      adjective: ['organic (hữu cơ)'],
+      adverb: ['organically (theo phương pháp hữu cơ)']
+    },
+    exampleSentence: 'Although organic food commands premium prices, health-conscious shoppers view it as an investment in wellness.',
+    exampleTranslation: 'Dù thực phẩm hữu cơ có giá đắt đỏ, những người tiêu dùng chú trọng sức khỏe vẫn coi đó là một khoản đầu tư cho thể trạng.'
+  },
+  {
+    id: 'foo-seed-04',
+    word: 'culinary traditions',
+    ipa: '/ˈkʌl.ɪ.nər.i trəˈdɪʃ.ənz/',
+    stressPattern: 'CUL-i-nar-y tra-DI-tions [O o o o • o O o]',
+    partOfSpeech: 'collocation',
+    topic: 'food',
+    bandLevel: '6.0 - 7.5',
+    vietnameseMeaning: 'các truyền thống ẩm thực đặc trưng',
+    synonymsByBand: {
+      band45: 'traditional cooking ways',
+      band65: 'gastronomic heritage',
+      band80: 'indigenous epicurean conventions'
+    },
+    collocations: ['preserve culinary traditions', 'rich culinary traditions', 'celebrate local culinary traditions'],
+    wordFamily: {
+      noun: ['cuisine (ẩm thực)', 'culinarian (đầu bếp)'],
+      adjective: ['culinary (thuộc về nấu nướng, ẩm thực)']
+    },
+    exampleSentence: 'Vietnamese culinary traditions strike a delicate balance between piquant spices, fresh herbs, and soothing broths.',
+    exampleTranslation: 'Nền ẩm thực truyền thống Việt Nam tạo nên sự cân bằng tinh tế giữa gia vị đậm đà, rau thơm tươi ngon và nước dùng thanh dịu.'
+  },
+  {
+    id: 'foo-seed-05',
+    word: 'gastronomic indulgence',
+    ipa: '/ˌɡæs.trəˈnɒm.ɪk ɪnˈdʌl.dʒəns/',
+    stressPattern: 'gas-tro-NOM-ic in-DUL-gence [o o O o • o O o]',
+    partOfSpeech: 'collocation',
+    topic: 'food',
+    bandLevel: '7.5+',
+    vietnameseMeaning: 'sự thưởng thức ẩm thực xa hoa, đắm chìm trong món ngon mỹ vị',
+    synonymsByBand: {
+      band45: 'eating very tasty food',
+      band65: 'fine dining pleasure',
+      band80: 'epicurean banquet and lavish palate gratification'
+    },
+    collocations: ['partake in gastronomic indulgence', 'peak of gastronomic indulgence', 'haven for gastronomic indulgence'],
+    wordFamily: {
+      noun: ['gastronomy (khoa ẩm thực)', 'indulgence (sự nuông chiều/thưởng thức)'],
+      verb: ['indulge (đắm mình, nuông chiều)'],
+      adjective: ['gastronomic (thuộc nghệ thuật ẩm thực)', 'indulgent (khoan dung, nuông chiều)']
+    },
+    exampleSentence: 'Michelin-starred establishments offer patrons more than a meal; they orchestrate an unforgettable journey of gastronomic indulgence.',
+    exampleTranslation: 'Các nhà hàng đạt sao Michelin mang đến cho thực khách nhiều hơn một bữa ăn; họ dàn dựng một hành trình mỹ vị xa hoa khó quên.'
+  },
+
+  // ==========================================
+  // TOPIC 8: FRIENDS (BẠN BÈ & MỐI QUAN HỆ)
+  // ==========================================
+  {
+    id: 'fri-seed-01',
+    word: 'best friend',
+    ipa: '/ˌbest ˈfrend/',
+    stressPattern: 'BEST FRIEND [O • O]',
+    partOfSpeech: 'collocation',
+    topic: 'friends',
+    bandLevel: 'Mất gốc',
+    vietnameseMeaning: 'bạn thân nhất',
+    synonymsByBand: {
+      band45: 'closest buddy',
+      band65: 'intimate confidant',
+      band80: 'inseparable alter ego'
+    },
+    collocations: ['childhood best friend', 'confide in a best friend', 'lifelong best friend'],
+    wordFamily: {
+      noun: ['friend (người bạn)', 'friendship (tình bạn)'],
+      adjective: ['friendly (thân thiện)']
+    },
+    exampleSentence: 'Whenever I face overwhelming academic setbacks, my best friend is always there to lend a sympathetic ear.',
+    exampleTranslation: 'Bất cứ khi nào tôi gặp bế tắc trong học tập, bạn thân nhất của tôi luôn ở đó để lắng nghe và thấu hiểu.'
+  },
+  {
+    id: 'fri-seed-02',
+    word: 'childhood friend',
+    ipa: '/ˈtʃaɪld.hʊd frend/',
+    stressPattern: 'CHILD-hood FRIEND [O o • O]',
+    partOfSpeech: 'collocation',
+    topic: 'friends',
+    bandLevel: '< 4.5',
+    vietnameseMeaning: 'bạn từ thời thơ ấu',
+    synonymsByBand: {
+      band45: 'friend from young age',
+      band65: 'long-standing companion',
+      band80: 'friend from formative years'
+    },
+    collocations: ['reconnect with a childhood friend', 'cherish childhood friends', 'reminisce with childhood friends'],
+    wordFamily: {
+      noun: ['child (đứa trẻ)', 'childhood (thời thơ ấu)']
+    },
+    exampleSentence: 'Reconnecting with a childhood friend evokes fond memories of playground adventures and carefree summers.',
+    exampleTranslation: 'Việc gặp lại một người bạn thuở ấu thơ gợi lại những ký ức ngọt ngào về những cuộc phiêu lưu nơi sân chơi và những mùa hè vô tư lự.'
+  },
+  {
+    id: 'fri-seed-03',
+    word: 'mutual trust',
+    ipa: '/ˈmjuː.tʃu.əl trʌst/',
+    stressPattern: 'MU-tu-al TRUST [O o o • O]',
+    partOfSpeech: 'collocation',
+    topic: 'friends',
+    bandLevel: '4.5 - 6.0',
+    vietnameseMeaning: 'sự tin tưởng lẫn nhau',
+    synonymsByBand: {
+      band45: 'trusting each other',
+      band65: 'reciprocal confidence',
+      band80: 'unshakable bilateral fidelity'
+    },
+    collocations: ['cemented by mutual trust', 'foster mutual trust', 'founded upon mutual trust'],
+    wordFamily: {
+      noun: ['trust (sự tin tưởng)', 'mutuality (tính hỗ tương)'],
+      verb: ['trust (tin cậy)'],
+      adjective: ['mutual (lẫn nhau)', 'trustworthy (đáng tin cậy)']
+    },
+    exampleSentence: 'Enduring human relationships cannot flourish without a sturdy bedrock of honesty and mutual trust.',
+    exampleTranslation: 'Các mối quan hệ lâu dài không thể đơm hoa kết trái nếu thiếu đi nền tảng vững chắc của sự trung thực và tin tưởng lẫn nhau.'
+  },
+  {
+    id: 'fri-seed-04',
+    word: 'fair-weather friend',
+    ipa: '/ˌfeə.weð.ər ˈfrend/',
+    stressPattern: 'FAIR-weath-er FRIEND [O • O o • O]',
+    partOfSpeech: 'idiom',
+    topic: 'friends',
+    bandLevel: '6.0 - 7.5',
+    vietnameseMeaning: 'bạn khi vui vẻ có mặt, khi hoạn nạn quay lưng',
+    synonymsByBand: {
+      band45: 'friend only when easy',
+      band65: 'unreliable opportunist',
+      band80: 'fickle companion in transient prosperity'
+    },
+    collocations: ['beware of fair-weather friends', 'deserted by fair-weather friends'],
+    wordFamily: {
+      adjective: ['fair-weather (chỉ có lúc thuận lợi)']
+    },
+    exampleSentence: 'During financial adversity, you quickly discover who your genuine allies are and who is merely a fair-weather friend.',
+    exampleTranslation: 'Trong nghịch cảnh tài chính, bạn sẽ nhanh chóng nhận ra ai là người đồng hành chân chính và ai chỉ là kẻ bạn lúc vui vẻ.'
+  },
+  {
+    id: 'fri-seed-05',
+    word: 'unbreakable camaraderie',
+    ipa: '/ʌnˈbreɪ.kə.bəl ˌkæm.əˈrɑː.dər.i/',
+    stressPattern: 'un-BREAK-a-ble cam-a-RAD-er-ie [o O o o • o o O o o]',
+    partOfSpeech: 'collocation',
+    topic: 'friends',
+    bandLevel: '7.5+',
+    vietnameseMeaning: 'tình bằng hữu / tình đồng chí keo sơn không thể phá vỡ',
+    synonymsByBand: {
+      band45: 'very strong friend bond',
+      band65: 'indestructible fellowship',
+      band80: 'indissoluble fraternity and fraternal solidarity'
+    },
+    collocations: ['forge unbreakable camaraderie', 'spirit of unbreakable camaraderie', 'cement unbreakable camaraderie'],
+    wordFamily: {
+      noun: ['camaraderie (tình bằng hữu)'],
+      adjective: ['unbreakable (không thể bẻ gãy)']
+    },
+    exampleSentence: 'Enduring arduous military training drills together forges an unbreakable camaraderie among recruits.',
+    exampleTranslation: 'Cùng nhau trải qua những bài huấn luyện quân sự gian khổ đã tôi rèn nên một tình đồng chí keo sơn gắn bó giữa các tân binh.'
+  },
+
+  // ==========================================
+  // TOPIC 9: HOLIDAYS (KỲ NGHỈ & DU LỊCH)
+  // ==========================================
+  {
+    id: 'hol-seed-01',
+    word: 'summer holiday',
+    ipa: '/ˈsʌm.ər ˈhɒl.ə.deɪ/',
+    stressPattern: 'SUM-mer HOL-i-day [O o • O o o]',
+    partOfSpeech: 'collocation',
+    topic: 'holidays',
+    bandLevel: 'Mất gốc',
+    vietnameseMeaning: 'kỳ nghỉ hè',
+    synonymsByBand: {
+      band45: 'summer break',
+      band65: 'summer vacation',
+      band80: 'estival interlude'
+    },
+    collocations: ['spend the summer holiday', 'enjoy summer holiday', 'plan a summer holiday'],
+    wordFamily: {
+      noun: ['summer (mùa hè)', 'holiday (ngày nghỉ)']
+    },
+    exampleSentence: 'Students eagerly look forward to the summer holiday to recharge after grueling semester examinations.',
+    exampleTranslation: 'Học sinh háo hức mong chờ kỳ nghỉ hè để nạp lại năng lượng sau những kỳ thi học kỳ căng thẳng.'
+  },
+  {
+    id: 'hol-seed-02',
+    word: 'tourist attraction',
+    ipa: '/ˈtʊə.rɪst əˈtræk.ʃən/',
+    stressPattern: 'TOUR-ist at-TRAC-tion [O o • o O o]',
+    partOfSpeech: 'collocation',
+    topic: 'holidays',
+    bandLevel: '< 4.5',
+    vietnameseMeaning: 'điểm thu hút khách du lịch',
+    synonymsByBand: {
+      band45: 'place tourists visit',
+      band65: 'popular sightseeing destination',
+      band80: 'famed visitor magnet'
+    },
+    collocations: ['major tourist attraction', 'crowded tourist attraction', 'explore tourist attractions'],
+    wordFamily: {
+      noun: ['tour (chuyến đi)', 'tourism (ngành du lịch)', 'attraction (sự thu hút)'],
+      verb: ['attract (thu hút)'],
+      adjective: ['attractive (hấp dẫn)']
+    },
+    exampleSentence: 'The ancient citadel is designated as the city’s paramount tourist attraction, receiving millions of travelers annually.',
+    exampleTranslation: 'Khu hoàng thành cổ được xác định là điểm thu hút du lịch hàng đầu của thành phố, đón hàng triệu du khách mỗi năm.'
+  },
+  {
+    id: 'hol-seed-03',
+    word: 'package tour',
+    ipa: '/ˈpæk.ɪdʒ ˌtʊər/',
+    stressPattern: 'PACK-age TOUR [O o • O]',
+    partOfSpeech: 'collocation',
+    topic: 'holidays',
+    bandLevel: '4.5 - 6.0',
+    vietnameseMeaning: 'chuyến du lịch trọn gói (đã bao gồm vé, phòng và ăn uống)',
+    synonymsByBand: {
+      band45: 'all-in-one trip',
+      band65: 'all-inclusive excursion',
+      band80: 'pre-arranged comprehensive itinerary'
+    },
+    collocations: ['book a package tour', 'convenience of package tours', 'cheap package tour'],
+    wordFamily: {
+      noun: ['package (gói hàng)', 'tour (chuyến tham quan)']
+    },
+    exampleSentence: 'Novice travelers frequently opt for package tours to circumvent logistical hurdles in foreign countries.',
+    exampleTranslation: 'Những du khách mới đi lần đầu thường chọn các chuyến du lịch trọn gói để tránh những trở ngại về mặt hậu cần tại nước ngoài.'
+  },
+  {
+    id: 'hol-seed-04',
+    word: 'off the beaten track',
+    ipa: '/ˌɒf ðə ˌbiː.tən ˈtræk/',
+    stressPattern: 'off the BEAT-en TRACK [o o • O o • O]',
+    partOfSpeech: 'idiom',
+    topic: 'holidays',
+    bandLevel: '6.0 - 7.5',
+    vietnameseMeaning: 'xa xôi hẻo lánh, hoang sơ chưa bị thương mại hóa du lịch',
+    synonymsByBand: {
+      band45: 'quiet far away place',
+      band65: 'unspoiled secluded destination',
+      band80: 'remote and pristine wilderness'
+    },
+    collocations: ['travel off the beaten track', 'gems off the beaten track', 'stay off the beaten track'],
+    wordFamily: {
+      adjective: ['off-the-beaten-track (hoang sơ, độc lạ)']
+    },
+    exampleSentence: 'Intrepid backpackers relish venturing off the beaten track to discover authentic aboriginal villages.',
+    exampleTranslation: 'Những phượt thủ dũng cảm thích mạo hiểm tìm đến những vùng đất hoang sơ để khám phá các bản làng thổ dân đích thực.'
+  },
+  {
+    id: 'hol-seed-05',
+    word: 'cultural immersion',
+    ipa: '/ˈkʌl.tʃər.əl ɪˈmɜː.ʃən/',
+    stressPattern: 'CUL-tur-al im-MER-sion [O o o • o O o]',
+    partOfSpeech: 'collocation',
+    topic: 'holidays',
+    bandLevel: '6.0 - 7.5',
+    vietnameseMeaning: 'sự hòa mình / đắm chìm trọn vẹn vào văn hóa bản địa',
+    synonymsByBand: {
+      band45: 'living like local people',
+      band65: 'authentic local engagement',
+      band80: 'profound ethnographic assimilation'
+    },
+    collocations: ['foster cultural immersion', 'seek deep cultural immersion', 'benefits of cultural immersion'],
+    wordFamily: {
+      noun: ['immersion (sự chìm đắm)'],
+      verb: ['immerse (nhúng, đắm chìm)'],
+      adjective: ['immersive (mang tính đắm chìm)']
+    },
+    exampleSentence: 'Staying with host families facilitates genuine cultural immersion far beyond superficial sightseeing bus tours.',
+    exampleTranslation: 'Ở cùng các gia đình bản xứ tạo điều kiện cho sự hòa mình văn hóa đích thực, vượt xa những chuyến xe buýt ngắm cảnh hời hợt.'
+  },
+  {
+    id: 'hol-seed-06',
+    word: 'wanderlust',
+    ipa: '/ˈwɒn.də.lʌst/',
+    stressPattern: 'WAN-der-lust [O o o]',
+    partOfSpeech: 'noun',
+    topic: 'holidays',
+    bandLevel: '7.5+',
+    vietnameseMeaning: 'niềm đam mê xê dịch, khát khao đi chu du thế giới',
+    synonymsByBand: {
+      band45: 'love for travel',
+      band65: 'insatiable passion for travel',
+      band80: 'inveterate globetrotting yearning'
+    },
+    collocations: ['fueled by wanderlust', 'overcome with wanderlust', 'satisfy one\'s wanderlust'],
+    wordFamily: {
+      noun: ['wanderer (kẻ lãng du)', 'wanderlust (lòng ham xê dịch)'],
+      verb: ['wander (lang thang, du ngoạn)']
+    },
+    exampleSentence: 'Consumed by uncontrollable wanderlust, the young photojournalist spent a decade documenting nomadic tribes.',
+    exampleTranslation: 'Bị thiêu đốt bởi niềm đam mê xê dịch mãnh liệt, nữ phóng viên ảnh trẻ đã dành một thập kỷ ghi lại cuộc sống các bộ tộc du mục.'
+  },
+
+  // ==========================================
+  // TOPIC 10: MUSIC (ÂM NHẠC & NGHỆ THUẬT BIỂU DIỄN)
+  // ==========================================
+  {
+    id: 'mus-seed-01',
+    word: 'listen to music',
+    ipa: '/ˈlɪs.ən tuː ˈmjuː.zɪk/',
+    stressPattern: 'LIS-ten to MU-sic [O o • o • O o]',
+    partOfSpeech: 'collocation',
+    topic: 'music',
+    bandLevel: 'Mất gốc',
+    vietnameseMeaning: 'nghe nhạc thư giãn',
+    synonymsByBand: {
+      band45: 'hear songs',
+      band65: 'enjoy musical audio',
+      band80: 'engage in auditory contemplation'
+    },
+    collocations: ['listen to music with headphones', 'relax and listen to music', 'listen to classical music'],
+    wordFamily: {
+      noun: ['listener (thính giả)', 'music (âm nhạc)'],
+      verb: ['listen (lắng nghe)']
+    },
+    exampleSentence: 'I regularly listen to instrumental acoustic music while studying to boost concentration.',
+    exampleTranslation: 'Tôi thường xuyên nghe nhạc mộc không lời khi học bài để nâng cao khả năng tập trung.'
+  },
+  {
+    id: 'mus-seed-02',
+    word: 'live concert',
+    ipa: '/ˌlaɪv ˈkɒn.sət/',
+    stressPattern: 'LIVE CON-cert [O • O o]',
+    partOfSpeech: 'collocation',
+    topic: 'music',
+    bandLevel: '< 4.5',
+    vietnameseMeaning: 'buổi hòa nhạc trực tiếp',
+    synonymsByBand: {
+      band45: 'music show',
+      band65: 'live musical performance',
+      band80: 'electrifying stadium recital'
+    },
+    collocations: ['attend a live concert', 'ticket to a live concert', 'stadium live concert'],
+    wordFamily: {
+      noun: ['concert (buổi hòa nhạc)']
+    },
+    exampleSentence: 'Attending a live concert generates an electric surge of collective euphoria that studio albums cannot replicate.',
+    exampleTranslation: 'Tham dự một buổi hòa nhạc trực tiếp tạo ra sự phấn khích tập thể mãnh liệt mà các bản thu âm trong phòng thu không thể tái hiện được.'
+  },
+  {
+    id: 'mus-seed-03',
+    word: 'catchy melody',
+    ipa: '/ˈkætʃ.i ˈmel.ə.di/',
+    stressPattern: 'CATCH-y MEL-o-dy [O o • O o o]',
+    partOfSpeech: 'collocation',
+    topic: 'music',
+    bandLevel: '4.5 - 6.0',
+    vietnameseMeaning: 'giai điệu bắt tai, dễ nhớ',
+    synonymsByBand: {
+      band45: 'easy song to sing',
+      band65: 'memorable musical tune',
+      band80: 'infectiously memorable cadence'
+    },
+    collocations: ['boast a catchy melody', 'hum a catchy melody', 'composed with catchy melodies'],
+    wordFamily: {
+      noun: ['melody (giai điệu)', 'melodist (người soạn giai điệu)'],
+      adjective: ['melodic (êm ái, giàu giai điệu)', 'catchy (bắt tai)']
+    },
+    exampleSentence: 'Commercial jingles deliberately rely on catchy melodies to implant brand slogans firmly into consumer consciousness.',
+    exampleTranslation: 'Các bản nhạc quảng cáo cố ý dựa vào những giai điệu bắt tai để khắc sâu khẩu hiệu thương hiệu vào tâm trí người tiêu dùng.'
+  },
+  {
+    id: 'mus-seed-04',
+    word: 'soothe the soul',
+    ipa: '/suːð ðə səʊl/',
+    stressPattern: 'SOOTHE the SOUL [O • o • O]',
+    partOfSpeech: 'idiom',
+    topic: 'music',
+    bandLevel: '6.0 - 7.5',
+    vietnameseMeaning: 'xoa dịu tâm hồn, chữa lành cảm xúc',
+    synonymsByBand: {
+      band45: 'make me feel peaceful',
+      band65: 'tranquilize mental agitation',
+      band80: 'provide therapeutic catharsis and spiritual solace'
+    },
+    collocations: ['power to soothe the soul', 'melodies that soothe the soul', 'soothe the weary soul'],
+    wordFamily: {
+      verb: ['soothe (xoa dịu, an ủi)'],
+      adjective: ['soothing (êm dịu)']
+    },
+    exampleSentence: 'The gentle cadence of classical piano sonatas possesses an extraordinary capacity to soothe the weary soul after exhausting labor.',
+    exampleTranslation: 'Nhịp điệu êm dịu của những bản sonata piano cổ điển sở hữu khả năng kỳ diệu giúp xoa dịu tâm hồn mỏi mệt sau giờ làm việc kiệt sức.'
+  },
+  {
+    id: 'mus-seed-05',
+    word: 'symphonic harmony',
+    ipa: '/sɪmˈfɒn.ɪk ˈhɑː.mə.ni/',
+    stressPattern: 'sym-PHON-ic HAR-mo-ny [o O o • O o o]',
+    partOfSpeech: 'collocation',
+    topic: 'music',
+    bandLevel: '7.5+',
+    vietnameseMeaning: 'sự hòa âm giao hưởng đỉnh cao',
+    synonymsByBand: {
+      band45: 'great orchestra music',
+      band65: 'orchestral acoustic resonance',
+      band80: 'polyphonic orchestral synthesis'
+    },
+    collocations: ['conduct symphonic harmony', 'richness of symphonic harmony', 'culmination of symphonic harmony'],
+    wordFamily: {
+      noun: ['symphony (bản giao hưởng)', 'harmony (sự hòa âm)', 'harmonization (sự hòa hợp)'],
+      verb: ['harmonize (hòa âm, phối hợp)'],
+      adjective: ['symphonic (thuộc giao hưởng)', 'harmonious (hòa hợp, du dương)']
+    },
+    exampleSentence: 'Beethoven’s Ninth Symphony remains the quintessential zenith of symphonic harmony, bridging individual suffering with cosmic transcendence.',
+    exampleTranslation: 'Bản Giao hưởng số 9 của Beethoven mãi là đỉnh cao mẫu mực của sự hòa âm giao hưởng, bắc nhịp cầu giữa nỗi thống khổ của cá nhân với sự thăng hoa của vũ trụ.'
+  }
+];
+
+// Khởi tạo toàn cục cho môi trường Node.js và trình duyệt
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = { IELTS_VOCAB_SEED_PART1 };
+}

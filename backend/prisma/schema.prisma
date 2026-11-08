@@ -1,0 +1,252 @@
+// ==============================================================================
+// IELTS MASTER AI - DATABASE SCHEMA (PRISMA ORM)
+// ==============================================================================
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+// ------------------------------------------------------------------------------
+// ENUMS
+// ------------------------------------------------------------------------------
+
+// 2 Hình thức thi IELTS chính thức
+// ACADEMIC: Dành cho bậc đại học, sau đại học hoặc hành nghề chuyên môn
+// GENERAL_TRAINING: Dành cho đào tạo nghề, trung học hoặc định cư
+enum ExamType {
+  ACADEMIC
+  GENERAL_TRAINING
+}
+
+// Hệ thống phân tầng 5 cấp độ học tập theo Band điểm
+// ZERO_FOUNDATION: "Mất gốc" (Pre-IELTS / 0 - 3.0)
+// BELOW_4_5: "< 4.5" (Foundation / 3.0 - 4.0)
+// BAND_4_5_TO_6_0: "4.5 - 6.0" (Intermediate)
+// BAND_6_0_TO_7_5: "6.0 - 7.5" (Upper-Intermediate to Advanced)
+// BAND_7_5_PLUS: "7.5+" (Mastery)
+enum BandLevel {
+  ZERO_FOUNDATION
+  BELOW_4_5
+  BAND_4_5_TO_6_0
+  BAND_6_0_TO_7_5
+  BAND_7_5_PLUS
+}
+
+// 4 Kỹ năng cốt lõi của kỳ thi IELTS
+enum SkillType {
+  LISTENING
+  SPEAKING
+  READING
+  WRITING
+}
+
+enum UserRole {
+  STUDENT
+  INSTRUCTOR
+  ADMIN
+}
+
+enum LearningPathStatus {
+  DRAFT
+  ACTIVE
+  PAUSED
+  COMPLETED
+  ARCHIVED
+}
+
+enum ModuleStatus {
+  LOCKED
+  AVAILABLE
+  IN_PROGRESS
+  COMPLETED
+}
+
+// ------------------------------------------------------------------------------
+// MODELS
+// ------------------------------------------------------------------------------
+
+model User {
+  id                 String           @id @default(cuid())
+  email              String           @unique
+  fullName           String
+  avatarUrl          String?
+  role               String           @default("STUDENT") // UserRole: STUDENT, INSTRUCTOR, ADMIN
+  
+  // Mục tiêu ôn luyện tổng thể của học viên
+  targetExamType     String           @default("ACADEMIC") // ExamType: ACADEMIC | GENERAL_TRAINING
+  targetOverallBand  Float            @default(6.5)
+  currentOverallBand Float            @default(4.0)
+  overallTier        String           @default("BELOW_4_5") // BandLevel: ZERO_FOUNDATION, BELOW_4_5,...
+
+  createdAt          DateTime         @default(now())
+  updatedAt          DateTime         @updatedAt
+
+  // Quan hệ dữ liệu
+  skillProfiles      UserSkillProfile[]
+  learningPaths      LearningPath[]
+  aiEvaluations      AiEvaluationRecord[]
+  studyLogs          StudyLog[]
+
+  @@map("users")
+}
+
+// Bảng lưu trữ chi tiết trình độ 4 kỹ năng của học viên
+model UserSkillProfile {
+  id           String    @id @default(cuid())
+  userId       String
+  skill        String    // SkillType: LISTENING, SPEAKING, READING, WRITING
+  
+  currentTier  String    // BandLevel: ZERO_FOUNDATION, BELOW_4_5, BAND_4_5_TO_6_0, BAND_6_0_TO_7_5, BAND_7_5_PLUS
+  currentBand  Float     // Điểm số hiện tại (vd: 5.0)
+  targetTier   String    // BandLevel mục tiêu
+  targetBand   Float     // Điểm số mục tiêu (vd: 7.0)
+  
+  strengths    String?   // JSON chuỗi phân tích điểm mạnh từ AI
+  weaknesses   String?   // JSON chuỗi phân tích điểm yếu từ AI
+  
+  updatedAt    DateTime  @updatedAt
+
+  user         User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, skill])
+  @@map("user_skill_profiles")
+}
+
+// Bảng Quản lý Lộ trình Học tập Toàn diện (Learning Path)
+model LearningPath {
+  id                     String              @id @default(cuid())
+  userId                 String
+  title                  String
+  description            String?
+  
+  // Hỗ trợ 2 hình thức thi
+  examType               String              // ExamType: ACADEMIC | GENERAL_TRAINING
+  
+  // Phân tầng cấp độ xuất phát và đích đến
+  startOverallTier       String              // BandLevel
+  targetOverallTier      String              // BandLevel
+  targetOverallBand      Float
+  
+  status                 String              @default("ACTIVE") // LearningPathStatus
+  estimatedWeeks         Int                 @default(12)
+  weeklyHoursCommitment  Int                 @default(10)
+  
+  // Kế hoạch học tập chi tiết do AI phân tích và đề xuất
+  aiRoadmapData          String?             // JSON lưu danh sách đề xuất cá nhân hóa từ AI
+  
+  totalModulesCount      Int                 @default(0)
+  completedModulesCount  Int                 @default(0)
+  
+  createdAt              DateTime            @default(now())
+  updatedAt              DateTime            @updatedAt
+
+  user                   User                @relation(fields: [userId], references: [id], onDelete: Cascade)
+  modules                LearningModule[]
+  milestones             LearningMilestone[]
+
+  @@map("learning_paths")
+}
+
+// Các cột mốc mục tiêu trong lộ trình học tập
+model LearningMilestone {
+  id              String        @id @default(cuid())
+  learningPathId  String
+  title           String
+  description     String?
+  targetTier      String        // BandLevel mục tiêu cho mốc này
+  targetBand      Float
+  targetDate      DateTime?
+  isAchieved      Boolean       @default(false)
+  achievedAt      DateTime?
+
+  learningPath    LearningPath  @relation(fields: [learningPathId], references: [id], onDelete: Cascade)
+
+  @@map("learning_milestones")
+}
+
+// Module học tập phân theo Kỹ năng và Band Level
+model LearningModule {
+  id                 String        @id @default(cuid())
+  learningPathId     String
+  skill              String        // SkillType: LISTENING, SPEAKING, READING, WRITING
+  tier               String        // BandLevel: ZERO_FOUNDATION, BELOW_4_5, BAND_4_5_TO_6_0, BAND_6_0_TO_7_5, BAND_7_5_PLUS
+  examType           String        @default("ACADEMIC") // ACADEMIC hoặc GENERAL_TRAINING (Đặc biệt quan trọng cho Reading và Writing)
+  
+  title              String
+  description        String?
+  orderIndex         Int           @default(0)
+  estimatedMinutes   Int           @default(60)
+  status             String        @default("LOCKED") // ModuleStatus: LOCKED, AVAILABLE, IN_PROGRESS, COMPLETED
+  
+  completedAt        DateTime?
+  createdAt          DateTime      @default(now())
+  updatedAt          DateTime      @updatedAt
+
+  learningPath       LearningPath  @relation(fields: [learningPathId], references: [id], onDelete: Cascade)
+  lessons            Lesson[]
+
+  @@map("learning_modules")
+}
+
+// Chi tiết từng bài học trong Module
+model Lesson {
+  id               String          @id @default(cuid())
+  moduleId         String
+  title            String
+  description      String?
+  contentType      String          // THEORY, VOCABULARY, GRAMMAR, LISTENING_PRACTICE, READING_PASSAGE, SPEAKING_PROMPT, WRITING_PROMPT
+  contentBody      String          // Nội dung bài học (Markdown / JSON)
+  orderIndex       Int             @default(0)
+  isCompleted      Boolean         @default(false)
+
+  module           LearningModule  @relation(fields: [moduleId], references: [id], onDelete: Cascade)
+
+  @@map("lessons")
+}
+
+// Lịch sử AI chấm bài, phân tích lỗi và hỗ trợ sinh lộ trình
+model AiEvaluationRecord {
+  id                  String       @id @default(cuid())
+  userId              String
+  skill               String       // SkillType: LISTENING, SPEAKING, READING, WRITING
+  examType            String       // ExamType: ACADEMIC | GENERAL_TRAINING
+  
+  taskType            String?      // e.g., "TASK_1_LINE_GRAPH", "TASK_1_LETTER", "TASK_2_ESSAY", "PART_2_SPEAKING"
+  userInputText       String       // Đề bài hoặc bài làm của học viên
+  aiPrompt            String?      // Prompt được hệ thống gửi tới AI
+  aiResponseText      String       // Phản hồi chi tiết từ AI
+  
+  estimatedBand       Float?       // Band điểm dự đoán bởi AI (vd: 6.5)
+  bandTier            String?      // BandLevel tương ứng
+  
+  // Điểm chi tiết 4 tiêu chí chấm IELTS (dạng JSON)
+  // Writing: Task Achievement, Coherence & Cohesion, Lexical Resource, Grammatical Range & Accuracy
+  // Speaking: Fluency & Coherence, Lexical Resource, Grammatical Range & Accuracy, Pronunciation
+  criteriaScores      String?      // JSON format
+  suggestedImprovements String?    // JSON danh sách gợi ý cải thiện
+  
+  createdAt           DateTime     @default(now())
+
+  user                User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("ai_evaluation_records")
+}
+
+// Nhật ký học tập hàng ngày
+model StudyLog {
+  id              String      @id @default(cuid())
+  userId          String
+  studyDate       DateTime    @default(now())
+  durationMinutes Int         @default(0)
+  skillsPracticed String      // JSON array: ["LISTENING", "READING"]
+  notes           String?
+
+  user            User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("study_logs")
+}

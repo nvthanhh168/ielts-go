@@ -1,0 +1,81 @@
+# ==============================================================================
+# IELTS GO! - .gitignore for GitHub and Vercel
+# Loại trừ các file dung lượng lớn vượt hạn mức 100MB của GitHub và Vercel
+# ==============================================================================
+
+# 1. Các file nén và tài liệu Cambridge thô dung lượng lớn (> 50MB - 150MB)
+Cambridge IELTS 4
+Cambridge IELTS 5
+Cambridge IELTS 6
+Cambridge IELTS 7
+Cambridge IELTS 8.zip
+Cambridge IELTS 9.zip
+*.zip
+*.rar
+*.7z
+*.tar.gz
+
+# 2. Các thư mục sách tài liệu scan & CD Audio Cambridge
+Cambridge IELTS 3/
+Cambridge IELTS 8/
+Cambridge IELTS 9/
+CD1/
+CD2/
+Basic IELTS-20261107T184331Z-1-001/
+Audio/
+Test1/
+Test2/
+Test3/
+Test4/
+
+# 3. File PDF scan và tài liệu Office tham khảo
+*.pdf
+*.docx
+*.xlsx
+*.pptx
+
+# 4. Các file MP3 thô khác (ngoại trừ 4 file âm thanh chính thức của Đề thi Listening Cambridge Test 1)
+Test[1-4].Section*.mp3
+Test 2 - Section *.mp3
+Test 3 - Section *.mp3
+Test 4 - Section *.mp3
+
+# GIỮ LẠI 4 file MP3 chính thức phục vụ thi Listening trực tuyến trên Vercel:
+!Test 1 - Section 1.mp3
+!Test 1 - Section 2.mp3
+!Test 1 - Section 3.mp3
+!Test 1 - Section 4.mp3
+
+# 5. Node modules, build outputs và môi trường lập trình
+node_modules/
+backend/node_modules/
+backend/dist/
+backend/prisma/*.db
+backend/prisma/*.db-journal
+frontend/node_modules/
+frontend/dist/
+dist/
+build/
+*.db
+*.sqlite
+.cache/
+.parcel-cache/
+.vercel/
+
+# 6. Biến môi trường và bảo mật
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# 7. File tạm hệ điều hành và IDE
+.DS_Store
+Thumbs.db
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.idea/
+.vscode/
+scratch/

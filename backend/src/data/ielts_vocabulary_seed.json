@@ -1,0 +1,352 @@
+{
+  "metadata": {
+    "appName": "IELTS GO!",
+    "totalCoreWordsTarget": 2500,
+    "bandRequirements": {
+      "mat_goc": {
+        "label": "Mất gốc (Band 0 - 3.5)",
+        "cefr": "A1-A2",
+        "requiredCoreWords": 300,
+        "realWorldEquivalent": 1500
+      },
+      "duoi_4_5": {
+        "label": "Sơ cấp (Band < 4.5)",
+        "cefr": "A2-B1",
+        "requiredCoreWords": 500,
+        "realWorldEquivalent": 2500
+      },
+      "band_4_5_6_0": {
+        "label": "Trung cấp (Band 4.5 - 6.0)",
+        "cefr": "B1-B2",
+        "requiredCoreWords": 700,
+        "realWorldEquivalent": 4000
+      },
+      "band_6_0_7_5": {
+        "label": "Nâng cao (Band 6.0 - 7.5)",
+        "cefr": "B2-C1",
+        "requiredCoreWords": 600,
+        "realWorldEquivalent": 6000
+      },
+      "band_7_5_plus": {
+        "label": "Chuyên gia (Band 7.5+)",
+        "cefr": "C1-C2",
+        "requiredCoreWords": 400,
+        "realWorldEquivalent": 9000
+      }
+    },
+    "topics": [
+      { "id": "topic_1", "number": 1, "name": "Animals", "viName": "Động vật", "icon": "🐾" },
+      { "id": "topic_2", "number": 2, "name": "Art", "viName": "Nghệ thuật", "icon": "🎨" },
+      { "id": "topic_3", "number": 3, "name": "Celebrations", "viName": "Lễ kỷ niệm", "icon": "🎉" },
+      { "id": "topic_4", "number": 4, "name": "Clothes", "viName": "Trang phục", "icon": "👗" },
+      { "id": "topic_5", "number": 5, "name": "Environment", "viName": "Môi trường", "icon": "🌱" },
+      { "id": "topic_6", "number": 6, "name": "Famous People", "viName": "Người nổi tiếng", "icon": "🌟" },
+      { "id": "topic_7", "number": 7, "name": "Food", "viName": "Ẩm thực", "icon": "🍲" },
+      { "id": "topic_8", "number": 8, "name": "Friends", "viName": "Bạn bè", "icon": "🤝" },
+      { "id": "topic_9", "number": 9, "name": "Holidays", "viName": "Kỳ nghỉ", "icon": "🏖️" },
+      { "id": "topic_10", "number": 10, "name": "Music", "viName": "Âm nhạc", "icon": "🎵" },
+      { "id": "topic_11", "number": 11, "name": "Nation and Culture", "viName": "Quốc gia & Văn hóa", "icon": "🏯" },
+      { "id": "topic_12", "number": 12, "name": "Routines", "viName": "Thói quen hằng ngày", "icon": "⏰" },
+      { "id": "topic_13", "number": 13, "name": "Science", "viName": "Khoa học", "icon": "🔬" },
+      { "id": "topic_14", "number": 14, "name": "Shopping", "viName": "Mua sắm", "icon": "🛍️" },
+      { "id": "topic_15", "number": 15, "name": "Social Media", "viName": "Mạng xã hội", "icon": "📱" },
+      { "id": "topic_16", "number": 16, "name": "Sport", "viName": "Thể thao", "icon": "⚽" },
+      { "id": "topic_17", "number": 17, "name": "Technology", "viName": "Công nghệ", "icon": "💻" },
+      { "id": "topic_18", "number": 18, "name": "Transport", "viName": "Giao thông", "icon": "🚆" },
+      { "id": "topic_19", "number": 19, "name": "Weather", "viName": "Thời tiết", "icon": "⛅" },
+      { "id": "topic_20", "number": 20, "name": "Study", "viName": "Học tập", "icon": "🎓" },
+      { "id": "topic_21", "number": 21, "name": "Writing Task 1 Trends", "viName": "Xu hướng & Số liệu Task 1", "icon": "📈" },
+      { "id": "topic_22", "number": 22, "name": "Signpost Words", "viName": "Từ nối học thuật", "icon": "🔗" }
+    ]
+  },
+  "vocabulary": [
+    {
+      "id": "voc_001",
+      "word": "biodiversity conservation",
+      "ipaUK": "/ˌbaɪ.əʊ.daɪˈvɜː.sə.ti ˌkɒn.səˈveɪ.ʃən/",
+      "ipaUS": "/ˌbaɪ.oʊ.dɪˈvɝː.sə.t̬i ˌkɑːn.sɚˈveɪ.ʃən/",
+      "stressPattern": "ooOoo ooOo",
+      "partOfSpeech": "collocation (n)",
+      "topic": "Animals",
+      "bandLevel": "6.0 - 7.5",
+      "cefr": "C1",
+      "vietnameseMeaning": "Bảo tồn đa dạng sinh học",
+      "synonymsByBand": {
+        "band_4_5": "protecting different animals",
+        "band_6_5": "wildlife preservation / protecting ecosystems",
+        "band_8_0": "safeguarding biological diversity / ecological preservation"
+      },
+      "collocations": [
+        "promote biodiversity conservation",
+        "prioritize biodiversity conservation",
+        "global biodiversity conservation efforts"
+      ],
+      "wordFamily": [
+        "conserve (v)",
+        "conservationist (n)",
+        "biodiverse (adj)"
+      ],
+      "exampleSpeaking": "In my view, governments should allocate more funds to biodiversity conservation to protect endangered species.",
+      "exampleWriting": "Strict environmental regulations are imperative for long-term biodiversity conservation in tropical rainforests.",
+      "exampleTranslation": "Các quy định môi trường nghiêm ngặt là bắt buộc để bảo tồn đa dạng sinh học lâu dài ở các rừng mưa nhiệt đới."
+    },
+    {
+      "id": "voc_002",
+      "word": "aesthetic appeal",
+      "ipaUK": "/iːsˈθet.ɪk əˈpiːl/",
+      "ipaUS": "/esˈθet̬.ɪk əˈpiːl/",
+      "stressPattern": "oOo oO",
+      "partOfSpeech": "collocation (n)",
+      "topic": "Art",
+      "bandLevel": "6.0 - 7.5",
+      "cefr": "C1",
+      "vietnameseMeaning": "Sức hấp dẫn về mặt thẩm mỹ / Vẻ đẹp nghệ thuật",
+      "synonymsByBand": {
+        "band_4_5": "nice look / beauty",
+        "band_6_5": "visual attractiveness / artistic beauty",
+        "band_8_0": "aesthetic allure / visual splendour"
+      },
+      "collocations": [
+        "enhance the aesthetic appeal",
+        "possess great aesthetic appeal",
+        "purely for aesthetic appeal"
+      ],
+      "wordFamily": [
+        "aesthetics (n)",
+        "aesthetically (adv)",
+        "appealing (adj)"
+      ],
+      "exampleSpeaking": "One piece of art that I absolutely adore is Starry Night because of its timeless aesthetic appeal.",
+      "exampleWriting": "Modern architectural designs must balance functional utility with aesthetic appeal.",
+      "exampleTranslation": "Các thiết kế kiến trúc hiện đại phải cân bằng giữa công năng sử dụng và sức hấp dẫn thẩm mỹ."
+    },
+    {
+      "id": "voc_003",
+      "word": "cultural heritage",
+      "ipaUK": "/ˈkʌl.tʃər.əl ˈher.ɪ.tɪdʒ/",
+      "ipaUS": "/ˈkʌl.tʃɚ.əl ˈher.ɪ.t̬ɪdʒ/",
+      "stressPattern": "Ooo Ooo",
+      "partOfSpeech": "collocation (n)",
+      "topic": "Celebrations",
+      "bandLevel": "4.5 - 6.0",
+      "cefr": "B2",
+      "vietnameseMeaning": "Di sản văn hóa",
+      "synonymsByBand": {
+        "band_4_5": "old traditions",
+        "band_6_5": "traditional legacy / historical traditions",
+        "band_8_0": "intangible cultural patrimony / ancestral legacy"
+      },
+      "collocations": [
+        "preserve cultural heritage",
+        "rich cultural heritage",
+        "pass down cultural heritage"
+      ],
+      "wordFamily": [
+        "culture (n)",
+        "culturally (adv)",
+        "inherit (v)"
+      ],
+      "exampleSpeaking": "Traditional festivals like Tet play a vital role in preserving our national cultural heritage.",
+      "exampleWriting": "Annual celebrations foster social cohesion and remind younger generations of their rich cultural heritage.",
+      "exampleTranslation": "Các lễ kỷ niệm hằng năm thúc đẩy sự gắn kết xã hội và nhắc nhở thế hệ trẻ về di sản văn hóa phong phú của họ."
+    },
+    {
+      "id": "voc_004",
+      "word": "fast fashion phenomenon",
+      "ipaUK": "/fɑːst ˈfæʃ.ən fəˈnɒm.ɪ.nən/",
+      "ipaUS": "/fæst ˈfæʃ.ən fəˈnɑː.mə.nɑːn/",
+      "stressPattern": "O Oo oOoo",
+      "partOfSpeech": "noun phrase",
+      "topic": "Clothes",
+      "bandLevel": "6.0 - 7.5",
+      "cefr": "C1",
+      "vietnameseMeaning": "Hiện tượng thời trang ăn liền (thời trang nhanh)",
+      "synonymsByBand": {
+        "band_4_5": "cheap trendy clothes",
+        "band_6_5": "mass-produced trendy clothing",
+        "band_8_0": "throwaway fashion culture / rapid-turnover apparel industry"
+      },
+      "collocations": [
+        "drive the fast fashion phenomenon",
+        "environmental impact of the fast fashion phenomenon"
+      ],
+      "wordFamily": [
+        "fashionable (adj)",
+        "phenomenal (adj)"
+      ],
+      "exampleSpeaking": "Young consumers are increasingly aware of the environmental damage caused by the fast fashion phenomenon.",
+      "exampleWriting": "The fast fashion phenomenon has exacerbated textile waste and water pollution on a global scale.",
+      "exampleTranslation": "Hiện tượng thời trang nhanh đã làm trầm trọng thêm tình trạng rác thải dệt may và ô nhiễm nguồn nước trên quy mô toàn cầu."
+    },
+    {
+      "id": "voc_005",
+      "word": "ecological degradation",
+      "ipaUK": "/ˌiː.kəˈlɒdʒ.ɪ.kəl ˌdeɡ.rəˈdeɪ.ʃən/",
+      "ipaUS": "/ˌiː.kəˈlɑː.dʒɪ.kəl ˌdeɡ.rəˈdeɪ.ʃən/",
+      "stressPattern": "ooOoo ooOo",
+      "partOfSpeech": "collocation (n)",
+      "topic": "Environment",
+      "bandLevel": "7.5+",
+      "cefr": "C2",
+      "vietnameseMeaning": "Sự suy thoái sinh thái",
+      "synonymsByBand": {
+        "band_4_5": "harming nature",
+        "band_6_5": "environmental damage / habitat destruction",
+        "band_8_0": "ecological deterioration / environmental depletion"
+      },
+      "collocations": [
+        "accelerate ecological degradation",
+        "halt ecological degradation",
+        "irreversible ecological degradation"
+      ],
+      "wordFamily": [
+        "ecology (n)",
+        "degrade (v)",
+        "degrading (adj)"
+      ],
+      "exampleSpeaking": "Unchecked industrialization has resulted in severe ecological degradation across many developing nations.",
+      "exampleWriting": "Unless stringent policies are enacted, rampant deforestation will lead to irreversible ecological degradation.",
+      "exampleTranslation": "Trừ khi các chính sách nghiêm ngặt được ban hành, nạn phá rừng tràn lan sẽ dẫn đến sự suy thoái sinh thái không thể đảo ngược."
+    },
+    {
+      "id": "voc_006",
+      "word": "cutting-edge innovation",
+      "ipaUK": "/ˌkʌt.ɪŋˈedʒ ˌɪn.əˈveɪ.ʃən/",
+      "ipaUS": "/ˌkʌt̬.ɪŋˈedʒ ˌɪn.əˈveɪ.ʃən/",
+      "stressPattern": "ooO ooOo",
+      "partOfSpeech": "collocation (n)",
+      "topic": "Technology",
+      "bandLevel": "6.0 - 7.5",
+      "cefr": "C1",
+      "vietnameseMeaning": "Sự đổi mới/công nghệ tiên tiến nhất",
+      "synonymsByBand": {
+        "band_4_5": "new technology",
+        "band_6_5": "modern invention / advanced technology",
+        "band_8_0": "state-of-the-art breakthrough / pioneering technological advancement"
+      },
+      "collocations": [
+        "embrace cutting-edge innovation",
+        "spearhead cutting-edge innovation",
+        "revolutionary changes"
+      ],
+      "wordFamily": [
+        "innovate (v)",
+        "innovative (adj)",
+        "innovator (n)"
+      ],
+      "exampleSpeaking": "The technological advancement that excites me the most is artificial intelligence, a cutting-edge innovation with potential applications in healthcare and education.",
+      "exampleWriting": "Investing in cutting-edge innovation is crucial for nations seeking to maintain a competitive edge in the digital economy.",
+      "exampleTranslation": "Đầu tư vào đổi mới công nghệ tiên tiến là yếu tố sống còn đối với các quốc gia muốn duy trì lợi thế cạnh tranh trong nền kinh tế số."
+    },
+    {
+      "id": "voc_007",
+      "word": "extracurricular activities",
+      "ipaUK": "/ˌek.strə.kəˈrɪk.jə.lər ækˈtɪv.ə.tiz/",
+      "ipaUS": "/ˌek.strə.kəˈrɪk.jə.lɚ ækˈtɪv.ə.t̬iz/",
+      "stressPattern": "ooooOoo oOoo",
+      "partOfSpeech": "collocation (n)",
+      "topic": "Study",
+      "bandLevel": "4.5 - 6.0",
+      "cefr": "B2",
+      "vietnameseMeaning": "Các hoạt động ngoại khóa",
+      "synonymsByBand": {
+        "band_4_5": "after-school clubs",
+        "band_6_5": "non-academic pursuits / out-of-class activities",
+        "band_8_0": "co-curricular engagements / holistic student enrichment activities"
+      },
+      "collocations": [
+        "participate in extracurricular activities",
+        "balance core subjects with extracurricular activities"
+      ],
+      "wordFamily": [
+        "curriculum (n)",
+        "curricular (adj)"
+      ],
+      "exampleSpeaking": "Currently, besides focusing on my core subjects and elective courses, I actively participate in several extracurricular activities.",
+      "exampleWriting": "Engaging in extracurricular activities equips students with essential interpersonal skills that academic coursework alone cannot provide.",
+      "exampleTranslation": "Tham gia các hoạt động ngoại khóa trang bị cho học sinh những kỹ năng giao tiếp thiết yếu mà chương trình học thuật đơn thuần không thể cung cấp."
+    },
+    {
+      "id": "voc_008",
+      "word": "daily routine",
+      "ipaUK": "/ˈdeɪ.li ruːˈtiːn/",
+      "ipaUS": "/ˈdeɪ.li ruːˈtiːn/",
+      "stressPattern": "Oo oO",
+      "partOfSpeech": "collocation (n)",
+      "topic": "Routines",
+      "bandLevel": "Mất gốc",
+      "cefr": "A2",
+      "vietnameseMeaning": "Lịch trình / Thói quen sinh hoạt hằng ngày",
+      "synonymsByBand": {
+        "band_4_5": "everyday schedule",
+        "band_6_5": "habitual schedule / daily regimen",
+        "band_8_0": "quotidian rhythm / structured daily itinerary"
+      },
+      "collocations": [
+        "stick to a daily routine",
+        "change my daily routine",
+        "disrupt a daily routine"
+      ],
+      "wordFamily": [
+        "routinely (adv)"
+      ],
+      "exampleSpeaking": "I usually stick to a strict daily routine on weekdays to balance my work, study, and free time.",
+      "exampleWriting": "Incorporating physical exercise into one's daily routine significantly reduces the risk of sedentary lifestyle diseases.",
+      "exampleTranslation": "Việc đưa rèn luyện thể chất vào thói quen hằng ngày giúp giảm đáng kể nguy cơ mắc các bệnh do lối sống ít vận động."
+    },
+    {
+      "id": "voc_009",
+      "word": "fluctuate",
+      "ipaUK": "/ˈflʌk.tʃu.eɪt/",
+      "ipaUS": "/ˈflʌk.tʃu.eɪt/",
+      "stressPattern": "Ooo",
+      "partOfSpeech": "verb",
+      "topic": "Writing Task 1 Trends",
+      "bandLevel": "6.0 - 7.5",
+      "cefr": "C1",
+      "vietnameseMeaning": "Dao động / Biến động lên xuống thất thường",
+      "synonymsByBand": {
+        "band_4_5": "go up and down",
+        "band_6_5": "vary / oscillate",
+        "band_8_0": "experience erratic fluctuations / undulate"
+      },
+      "collocations": [
+        "fluctuate wildly",
+        "fluctuate marginally between X and Y",
+        "experience slight fluctuations"
+      ],
+      "wordFamily": [
+        "fluctuation (n)",
+        "fluctuating (adj)"
+      ],
+      "exampleSpeaking": "Prices of seasonal agricultural products tend to fluctuate depending on weather conditions.",
+      "exampleWriting": "As illustrated in the line graph, global oil prices fluctuated considerably between 2015 and 2020 before stabilizing.",
+      "exampleTranslation": "Như được minh họa trong biểu đồ đường, giá dầu toàn cầu dao động đáng kể trong giai đoạn 2015 - 2020 trước khi ổn định lại."
+    },
+    {
+      "id": "voc_010",
+      "word": "notwithstanding",
+      "ipaUK": "/ˌnɒt.wɪðˈstæn.dɪŋ/",
+      "ipaUS": "/ˌnɑːt.wɪθˈstæn.dɪŋ/",
+      "stressPattern": "ooOo",
+      "partOfSpeech": "preposition / adverb",
+      "topic": "Signpost Words",
+      "bandLevel": "7.5+",
+      "cefr": "C2",
+      "vietnameseMeaning": "Mặc dù / Bất chấp (Từ nối nhượng bộ học thuật bậc cao)",
+      "synonymsByBand": {
+        "band_4_5": "but / although",
+        "band_6_5": "despite / in spite of / nevertheless",
+        "band_8_0": "notwithstanding / albeit / regardless of"
+      },
+      "collocations": [
+        "notwithstanding the aforementioned drawbacks",
+        "notwithstanding these limitations"
+      ],
+      "wordFamily": [],
+      "exampleSpeaking": "Notwithstanding the high cost of living, many young professionals still prefer migrating to major metropolitan areas.",
+      "exampleWriting": "Notwithstanding the initial financial burden, transitioning to renewable energy yields substantial long-term economic benefits.",
+      "exampleTranslation": "Bất chấp gánh nặng tài chính ban đầu, việc chuyển đổi sang năng lượng tái tạo mang lại lợi ích kinh tế lâu dài to lớn."
+    }
+  ]
+}
